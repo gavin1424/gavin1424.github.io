@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="暖線拼布工作室圖示">
+  <rect width="64" height="64" rx="16" fill="#f7f1e8"/>
+  <path d="M10 10h22v22H10z" fill="#a45f47"/>
+  <path d="M32 10h22v22H32z" fill="#66705b"/>
+  <path d="M10 32h22v22H10z" fill="#647887"/>
+  <path d="M32 32h22v22H32z" fill="#e1b39a"/>
+  <path d="M10 32 32 10l22 22-22 22z" fill="none" stroke="#fffaf3" stroke-width="2" stroke-dasharray="3 3"/>
+</svg>
