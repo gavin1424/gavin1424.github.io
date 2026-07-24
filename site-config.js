@@ -14,9 +14,11 @@ window.SITE_CONFIG = {
   },
 
   service: {
+    brandName: "StudioSite",
+    brandTagline: "專業形象網站設計",
     name: "免主機月租工作室網站",
-    headline: "一次建置，免主機月租的工作室網站",
-    subheadline: "把品牌介紹、服務內容、作品和 LINE 詢問整理在同一個手機友善頁面，不需要維護 WordPress，也沒有虛擬主機月租。",
+    headline: "免主機月租工作室網站",
+    subheadline: "一次建置，網站檔案完整交付，打造專屬於你的專業形象官網。",
     servicePageUrl: "https://gavin1424.github.io/",
     contactUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfVcI9_CYmtl0oClrnvknq641MJnTnHHtw4cArZhCV5k9rmkA/viewform",
     email: "",
@@ -51,8 +53,8 @@ window.SITE_CONFIG = {
         }
       },
       service: {
-        title: "免主機月租工作室網站｜網站製作方案",
-        description: "一次建置的手機友善工作室網站方案，整合品牌介紹、服務、作品與詢問入口；可選免費網址，自有網域費用另計。",
+        title: "免主機月租工作室網站｜StudioSite 專業形象網站設計",
+        description: "一次建置的手機友善工作室網站，整理品牌介紹、服務、作品與詢問入口；網站檔案完整交付，可選免費網址或自有網域。",
         robots: "index, follow",
         path: "",
         ogImage: "assets/service-og.jpg",
@@ -84,11 +86,13 @@ window.SITE_CONFIG = {
   },
 
   theme: {
-    ink: "#2f2b27",
-    paper: "#f7f1e8",
-    cream: "#fffaf3",
-    clay: "#a45f47",
-    clayDark: "#7e4433",
+    ink: "#211d19",
+    paper: "#f5f0e7",
+    cream: "#fcfbf8",
+    gold: "#c4a263",
+    goldDark: "#8f6b32",
+    clay: "#c4a263",
+    clayDark: "#8f6b32",
     olive: "#66705b",
     blue: "#647887"
   },
