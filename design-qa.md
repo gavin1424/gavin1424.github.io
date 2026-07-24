@@ -75,6 +75,8 @@
   - 修正：Hero 原始 CTA 可見時隱藏固定 CTA；離開 Hero 後才顯示，頁尾進入視窗時再次隱藏。
 - [P2] JavaScript `window.open()` 在測試瀏覽器被攔截。
   - 修正：所有正式詢問動作改為真正的 `<a>` 連結，網址由 `site-config.js` 集中設定，實測可導向 Google 表單。
+- [P1] GitHub Pages 更新後，瀏覽器仍從快取載入舊版設定檔，造成 Title 與 Open Graph 被舊資料覆寫。
+  - 修正：為 `styles.css`、`site-config.js` 與 `script.js` 加入 v2 版本查詢字串，正式網址重新載入後即使用新版 SEO 與樣式。
 
 ### 第二輪證據
 
