@@ -96,4 +96,19 @@
 
 ## 結果
 
-本機版面、互動、圖片、表單入口、SEO 與真實性檢查通過。部署後需再以公開網址確認 HTTP 200、公開資源 MIME、Console error 與暖線 noindex。
+GitHub Pages build `37fc78dc951a9b4d38405fcab8ef524dc3ce881d` 完成後，已重新以公開網址驗證：
+
+- `https://gavin1424.github.io/`：HTTP 200
+- `https://gavin1424.github.io/privacy.html`：HTTP 200
+- `https://gavin1424.github.io/service-rules.html`：HTTP 200
+- `https://gavin1424.github.io/404.html`：HTTP 200
+- `https://gavin1424.github.io/assets/service-og.webp`：HTTP 200，`image/webp`
+- `https://gavin1424.github.io/assets/hero-scene-v2.webp`：HTTP 200，`image/webp`
+- `https://gavin1424.github.io/warm-thread-patchwork-demo/`：HTTP 200
+- Google 方案詢問表：HTTP 200，可直接看到表單欄位
+- 正式服務站：`index, follow`
+- 暖線示範首頁與舊服務頁：`noindex, follow`
+- 公開版 1440px、390px：破圖 0、Console error 0、無橫向溢位
+- 公開版正式詢問按鈕：成功導向既有 Google 方案詢問表
+
+最終結果：通過。
