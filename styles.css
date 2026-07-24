@@ -1042,7 +1042,7 @@ h3 {
 
 .case-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
@@ -1708,11 +1708,6 @@ h3 {
     grid-template-columns: 1fr 1fr;
   }
 
-  .case-card:last-child {
-    grid-column: 1 / -1;
-    width: calc(50% - 9px);
-  }
-
   .pricing-layout {
     grid-template-columns: 1fr;
   }
@@ -1866,11 +1861,6 @@ h3 {
 
   .case-grid {
     grid-template-columns: 1fr;
-  }
-
-  .case-card:last-child {
-    grid-column: auto;
-    width: auto;
   }
 
   .case-media {

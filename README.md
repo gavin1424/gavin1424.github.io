@@ -2,7 +2,7 @@
 
 正式公開網址：<https://gavin1424.github.io/>
 
-這是 AI 網站接案工作室目前真正對外使用的獨立銷售網站。暖線拼布工作室只作為公開設計案例，不是本服務站的品牌首頁。
+這是 AI 網站接案工作室目前真正對外使用的獨立銷售網站。暖線拼布工作室與留白陶所只作為公開設計案例，不是本服務站的品牌首頁，也不代表真實成交客戶。
 
 ## 核心訴求
 
@@ -53,6 +53,8 @@
 - `assets/warm-thread-mobile.webp`
 - `assets/case-studiosite-desktop.webp`
 - `assets/case-studiosite-mobile.webp`
+- `assets/case-liubai-desktop.webp`
+- `assets/case-liubai-mobile.webp`
 - `assets/service-og.webp`（1200 × 630）
 
 ## SEO 與索引
@@ -61,7 +63,14 @@
 - canonical：`https://gavin1424.github.io/`
 - Open Graph：`assets/service-og.webp`
 - JSON-LD：`Service`
-- 暖線虛構品牌示範站仍維持 `noindex, follow`
+- 暖線拼布與留白陶所兩個虛構品牌示範站均維持 `noindex, follow`
+
+## 公開案例
+
+- 暖線拼布工作室：<https://gavin1424.github.io/warm-thread-patchwork-demo/>
+- 留白陶所：<https://gavin1424.github.io/liubai-pottery-studio-demo/>
+
+兩者均在案例卡中清楚標示為商用網站設計示範或概念展示，不計入真實成交客戶數。
 
 ## 本機檢查
 
