@@ -55,3 +55,8 @@ GitHub Pages 使用 `main` 分支根目錄。網站是靜態 HTML、CSS、JavaSc
 - `assets/icons/`：Bootstrap Icons 的開源線性圖示，來源為官方 GitHub 儲存庫；Bootstrap Icons 採 MIT License。
 
 參考圖片只用於構圖、留白、字體層級與配色分析，未直接作為網站背景或公開資產。
+
+測試與比對結果請見：
+
+- `design-qa.md`
+- `網站服務銷售頁_參考圖改版_QA.md`
