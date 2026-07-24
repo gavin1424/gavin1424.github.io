@@ -16,9 +16,9 @@ window.SITE_CONFIG = {
   service: {
     brandName: "StudioSite",
     brandTagline: "專業形象網站設計",
-    name: "免主機月租工作室網站",
-    headline: "免主機月租工作室網站",
-    subheadline: "一次建置，網站檔案完整交付，打造專屬於你的專業形象官網。",
+    name: "7 天工作室網站上線包",
+    headline: "一次建站，完整交付",
+    subheadline: "單次支付網站建置費，網站檔案完整交付，打造專屬於你的工作室品牌官網。",
     servicePageUrl: "https://gavin1424.github.io/",
     contactUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfVcI9_CYmtl0oClrnvknq641MJnTnHHtw4cArZhCV5k9rmkA/viewform",
     email: "",
@@ -53,19 +53,23 @@ window.SITE_CONFIG = {
         }
       },
       service: {
-        title: "免主機月租工作室網站｜StudioSite 專業形象網站設計",
-        description: "一次建置的手機友善工作室網站，整理品牌介紹、服務、作品與詢問入口；網站檔案完整交付，可選免費網址或自有網域。",
+        title: "一次建站，完整交付｜工作室品牌網站製作",
+        description: "單次支付網站建置費，提供手機友善的一頁式工作室品牌網站、完整網站檔案、基礎 SEO、LINE 與表單整合。",
         robots: "index, follow",
         path: "",
-        ogImage: "assets/service-og.jpg",
-        ogImageAlt: "免主機月租工作室網站製作方案示意",
+        ogImage: "assets/service-og.webp",
+        ogImageAlt: "StudioSite 一次建站、完整交付的工作室品牌網站製作方案",
         type: "website",
         schema: {
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": "免主機月租工作室網站",
-          "description": "為個人工作室整理品牌介紹、服務內容、作品與詢問入口的手機友善網站建置服務。",
+          "name": "7 天工作室網站上線包",
+          "description": "單次支付網站建置費，提供手機友善的一頁式工作室品牌網站、完整網站檔案、基礎 SEO、LINE 與表單整合。",
           "areaServed": "TW",
+          "provider": {
+            "@type": "Organization",
+            "name": "StudioSite"
+          },
           "offers": [
             {
               "@type": "Offer",
@@ -86,13 +90,13 @@ window.SITE_CONFIG = {
   },
 
   theme: {
-    ink: "#211d19",
-    paper: "#f5f0e7",
+    ink: "#201c18",
+    paper: "#f3eee5",
     cream: "#fcfbf8",
-    gold: "#c4a263",
-    goldDark: "#8f6b32",
-    clay: "#c4a263",
-    clayDark: "#8f6b32",
+    gold: "#b38a49",
+    goldDark: "#87632e",
+    clay: "#a77b34",
+    clayDark: "#876025",
     olive: "#66705b",
     blue: "#647887"
   },

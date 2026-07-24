@@ -1,62 +1,79 @@
-# 免主機月租工作室網站｜獨立服務站
+# StudioSite 工作室品牌網站製作服務站
 
-這是「7 天工作室網站上線包」的正式公開服務說明站，與虛構品牌示範案例分開管理。
+正式公開網址：<https://gavin1424.github.io/>
 
-## 公開頁面
+這是 AI 網站接案工作室目前真正對外使用的獨立銷售網站。暖線拼布工作室只作為公開設計案例，不是本服務站的品牌首頁。
 
-- 首頁：`index.html`
-- 隱私權說明：`privacy.html`
-- 服務與合作規則：`service-rules.html`
-- 404：`404.html`
+## 核心訴求
+
+- 品牌：StudioSite
+- 中文副標：專業形象網站設計
+- 首頁主標：一次建站，完整交付
+- 方案：7 天工作室網站上線包
+- 正式售價：NT$12,800
+- 前三位案例合作價：NT$9,800
+- 付款：開始前 50% 訂金，確認完成後 50% 尾款
+- 時程：必要素材完整後開始計算 7 個工作天
+- 修改：兩次彙整後的文字與圖片修改
+
+## 對外頁面
+
+- `index.html`：服務銷售首頁
+- `privacy.html`：網站方案詢問隱私權說明
+- `service-rules.html`：服務範圍、付款、時程、修改與交付規則
+- `404.html`：找不到頁面
+- `sitemap.xml`、`robots.txt`：搜尋引擎設定
 
 ## 正式詢問入口
 
-詢問按鈕統一從 `site-config.js` 的以下欄位讀取：
+所有 `data-service-contact` 連結由 `site-config.js` 的以下設定集中管理：
 
 - `service.contactUrl`
 - `service.inquiryFormUrl`
 - `service.privacyContact`
 
-目前三者均指向已驗證可由未登入使用者填寫的 Google 方案詢問表。
+目前三者都指向已建立的 Google 方案詢問表。Email、LINE 與公開社群仍標記為「暫不使用」，網站不會顯示空白或假聯絡按鈕。
 
-## 聯絡資料狀態
+## v2 完整視覺改版
 
-- 服務名稱：免主機月租工作室網站
-- Google 方案詢問表：使用中
-- Email：暫不使用
-- 公開社群：暫不使用
-- LINE／LINE 官方帳號：未提供，不顯示空白或假按鈕
-- 隱私權聯絡窗口：同一詢問表，請在需求欄填寫「個資／隱私問題」
+2026-07-24 依高級暖白、金色點綴與桌面三欄 Hero 參考圖完成：
 
-不得在此儲存密碼、Token、Cookie、私人 Email、電話、地址或未經授權的客戶資料。
+- 首頁主訴求改為「一次建站，完整交付」
+- 1440px Hero 採左文案、中裝置 Mockup、右價格卡
+- 筆電與手機螢幕使用暖線拼布示範站的真實瀏覽器截圖
+- Hero 場景為本專案新生成的無文字暖白石材場景
+- 內容順序改為：優勢、適合對象、服務說明、方案範圍、流程、案例、價格、FAQ、CTA
+- 手機使用漢堡選單，內容依閱讀順序改為單欄
+- 所有動效支援 `prefers-reduced-motion`
 
-## 部署
+主要 v2 圖片：
 
-儲存庫：`gavin1424/gavin1424.github.io`
+- `assets/hero-scene-v2.webp`
+- `assets/warm-thread-desktop.webp`
+- `assets/warm-thread-mobile.webp`
+- `assets/case-studiosite-desktop.webp`
+- `assets/case-studiosite-mobile.webp`
+- `assets/service-og.webp`（1200 × 630）
 
-GitHub Pages 使用 `main` 分支根目錄。網站是靜態 HTML、CSS、JavaScript，不需要資料庫或傳統虛擬主機。
+## SEO 與索引
 
-## 2026-07-24 參考圖改版
+- 正式服務首頁：`index, follow`
+- canonical：`https://gavin1424.github.io/`
+- Open Graph：`assets/service-og.webp`
+- JSON-LD：`Service`
+- 暖線虛構品牌示範站仍維持 `noindex, follow`
 
-首頁已改為 StudioSite 的高級暖白／金色成交展示版：
+## 本機檢查
 
-- 1440px 採左文案、中間實景 Mockup、右價格卡三欄 Hero。
-- 1024px 保留三欄構圖；768px 與 390px 依序堆疊。
-- 手機版有固定「免費諮詢」入口，底部保留安全間距。
-- FAQ 使用可鍵盤操作的原生 `details`／`summary`。
-- 動效使用 Intersection Observer，並支援 `prefers-reduced-motion`。
+本專案為原生 HTML、CSS、JavaScript，不需要安裝套件。可在專案目錄啟動靜態檔案伺服器後，用真實 viewport 檢查：
 
-### 圖片與圖示來源
+- 1440 × 900
+- 1024 × 768
+- 768 × 1024
+- 390 × 844
+- 360 × 800
 
-- `assets/hero-studio.webp`：本次以影像生成工具新製作的自然光筆電場景，再嵌入暖線示範站實際公開畫面；1536 × 1024，約 134 KB。
-- `assets/case-warm-thread.webp`：暖線拼布示範站實際公開畫面。
-- `assets/case-studiosite.webp`：本站改版後實際畫面。
-- `assets/case-concept-studio.webp`：本次新生成的概念版型情境圖，頁面中已標示為概念展示。
-- `assets/icons/`：Bootstrap Icons 的開源線性圖示，來源為官方 GitHub 儲存庫；Bootstrap Icons 採 MIT License。
-
-參考圖片只用於構圖、留白、字體層級與配色分析，未直接作為網站背景或公開資產。
-
-測試與比對結果請見：
+最終品質記錄：
 
 - `design-qa.md`
-- `網站服務銷售頁_參考圖改版_QA.md`
+- `網站服務銷售頁_v2_完整視覺改版_QA.md`
