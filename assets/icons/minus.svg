@@ -1,8 +1,8 @@
 <!--
-tags: [next, proceed, swipe, arrow, right, direction, pointer, navigation, flow, navigate]
-category: Arrows
+tags: [subtract, less, minus, calculation, equation, remove, decrease, negative, mathematics, numeric]
+category: Math
 version: "1.0"
-unicode: "ea1f"
+unicode: "eaf2"
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"
@@ -16,6 +16,4 @@ unicode: "ea1f"
   stroke-linejoin="round"
 >
   <path d="M5 12l14 0" />
-  <path d="M13 18l6 -6" />
-  <path d="M13 6l6 6" />
 </svg>

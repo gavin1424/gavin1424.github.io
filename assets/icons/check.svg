@@ -1,8 +1,8 @@
 <!--
-tags: [next, proceed, swipe, arrow, right, direction, pointer, navigation, flow, navigate]
-category: Arrows
+tags: [tick, "yes", confirm, check, control, operation, approve, function, interface, management]
+category: System
 version: "1.0"
-unicode: "ea1f"
+unicode: "ea5e"
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"
@@ -15,7 +15,5 @@ unicode: "ea1f"
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M5 12l14 0" />
-  <path d="M13 18l6 -6" />
-  <path d="M13 6l6 6" />
+  <path d="M5 12l5 5l10 -10" />
 </svg>
