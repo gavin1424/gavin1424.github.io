@@ -1,75 +1,88 @@
-# 日和手作室｜手作課程網站設計示範案例
+# StudioSite 工作室品牌網站製作服務站
 
-「日和手作室」是 StudioSite 的第三個商用網站設計示範案例。品牌、地址、課程、價格與聯絡資料均為情境展示用途，不代表真實營業中的工作室。
+正式公開網址：<https://gavin1424.github.io/>
 
-## 網站定位
+這是 AI 網站接案工作室目前真正對外使用的獨立銷售網站。暖線拼布工作室與留白陶所只作為公開設計案例，不是本服務站的品牌首頁，也不代表真實成交客戶。
 
-- 類型：手作課程、體驗活動與生活選物工作室
-- 視覺：奶油紙張、鼠尾草綠、蜜桃橘、牛皮紙、拍立得、撕紙與紙膠帶
-- 目標：示範一頁式工作室網站如何整理課程、品牌氣質、體驗流程、常見問題與預約入口
+## 核心訴求
 
-## 技術
+- 品牌：StudioSite
+- 中文副標：專業形象網站設計
+- 首頁主標：一次建站，完整交付
+- 方案：7 天工作室網站上線包
+- 正式售價：NT$12,800
+- 前三位案例合作價：NT$9,800
+- 付款：開始前 50% 訂金，確認完成後 50% 尾款
+- 時程：必要素材完整後開始計算 7 個工作天
+- 修改：兩次彙整後的文字與圖片修改
 
-- HTML5
-- CSS3
-- 原生 JavaScript
-- GitHub Pages
-- 本地 WebP 圖片
-- Google Fonts：Noto Serif TC、Noto Sans TC
+## 對外頁面
 
-## 主要檔案
+- `index.html`：服務銷售首頁
+- `privacy.html`：網站方案詢問隱私權說明
+- `service-rules.html`：服務範圍、付款、時程、修改與交付規則
+- `404.html`：找不到頁面
+- `sitemap.xml`、`robots.txt`：搜尋引擎設定
 
-```text
-03_日和手作室/
-├─ index.html
-├─ styles.css
-├─ script.js
-├─ favicon.svg
-├─ 404.html
-├─ robots.txt
-├─ sitemap.xml
-├─ design-qa.md
-├─ assets/
-│  ├─ images/
-│  └─ icons/
-└─ screenshots/       # 本機 QA 截圖，不推送至公開網站
-```
+## 正式詢問入口
 
-## 本機開啟
+所有 `data-service-contact` 連結由 `site-config.js` 的以下設定集中管理：
 
-可直接開啟 `index.html`。若需要完整測試相對路徑與 404 行為，請在本資料夾啟動靜態伺服器，例如：
+- `service.contactUrl`
+- `service.inquiryFormUrl`
+- `service.privacyContact`
 
-```powershell
-python -m http.server 8772 --bind 127.0.0.1
-```
+目前三者都指向已建立的 Google 方案詢問表。Email、LINE 與公開社群仍標記為「暫不使用」，網站不會顯示空白或假聯絡按鈕。
 
-## 內容替換
+## v2 完整視覺改版
 
-- 品牌文字、課程資料與 FAQ：編輯 `index.html`
-- 色彩、字體與斷點：編輯 `styles.css` 的 `:root` 與 media queries
-- 選單、收藏、FAQ、示範預約：編輯 `script.js`
-- 攝影素材：將新圖壓縮為 WebP 後替換 `assets/images/` 同名檔案
-- SEO：修改 `index.html` 的 title、description、canonical、Open Graph、Twitter Card 與 JSON-LD
+2026-07-24 依高級暖白、金色點綴與桌面三欄 Hero 參考圖完成：
 
-## 示範模式
+- 首頁主訴求改為「一次建站，完整交付」
+- 1440px Hero 採左文案、中裝置 Mockup、右價格卡
+- 筆電與手機螢幕使用暖線拼布示範站的真實瀏覽器截圖
+- Hero 場景為本專案新生成的無文字暖白石材場景
+- 內容順序改為：優勢、適合對象、服務說明、方案範圍、流程、案例、價格、FAQ、CTA
+- 手機使用漢堡選單，內容依閱讀順序改為單欄
+- 所有動效支援 `prefers-reduced-motion`
 
-- 所有預約、LINE、Instagram、隱私權與服務條款按鈕只顯示示範提示。
-- 不會送出、儲存或外傳訪客資料。
-- Footer 清楚標示品牌及聯絡資料為示範用途。
+主要 v2 圖片：
 
-## 部署
+- `assets/hero-scene-v2.webp`
+- `assets/warm-thread-desktop.webp`
+- `assets/warm-thread-mobile.webp`
+- `assets/case-studiosite-desktop.webp`
+- `assets/case-studiosite-mobile.webp`
+- `assets/case-liubai-desktop.webp`
+- `assets/case-liubai-mobile.webp`
+- `assets/service-og.webp`（1200 × 630）
 
-- Repository：`gavin1424/gavin1424.github.io`
-- Branch：`main`
-- GitHub Pages：main branch / root
-- 正式網址：<https://gavin1424.github.io/>
+## SEO 與索引
 
-更新網站後：
+- 正式服務首頁：`index, follow`
+- canonical：`https://gavin1424.github.io/`
+- Open Graph：`assets/service-og.webp`
+- JSON-LD：`Service`
+- 暖線拼布與留白陶所兩個虛構品牌示範站均維持 `noindex, follow`
 
-```powershell
-git add .
-git commit -m "Update handmade studio demo website"
-git push origin main
-```
+## 公開案例
 
-GitHub Pages 會從 `main` 分支根目錄重新發布。
+- 暖線拼布工作室：<https://gavin1424.github.io/warm-thread-patchwork-demo/>
+- 留白陶所：<https://gavin1424.github.io/liubai-pottery-studio-demo/>
+
+兩者均在案例卡中清楚標示為商用網站設計示範或概念展示，不計入真實成交客戶數。
+
+## 本機檢查
+
+本專案為原生 HTML、CSS、JavaScript，不需要安裝套件。可在專案目錄啟動靜態檔案伺服器後，用真實 viewport 檢查：
+
+- 1440 × 900
+- 1024 × 768
+- 768 × 1024
+- 390 × 844
+- 360 × 800
+
+最終品質記錄：
+
+- `design-qa.md`
+- `網站服務銷售頁_v2_完整視覺改版_QA.md`

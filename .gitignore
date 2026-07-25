@@ -1,10 +1,1 @@
-.DS_Store
-Thumbs.db
-desktop.ini
-*.log
-.vscode/
-.idea/
-node_modules/
-screenshots/
-design-qa.md
-網站完成與部署報告.md
+.server.pid
