@@ -67,7 +67,7 @@
 
 ## 公開案例
 
-- 暖線拼布工作室：<https://gavin1424.github.io/warm-thread-patchwork-demo/>
+- 暖線拼布工作室：<https://gavin1424.github.io/handmade-studio-demo/>
 - 留白陶所：<https://gavin1424.github.io/liubai-pottery-studio-demo/>
 
 兩者均在案例卡中清楚標示為商用網站設計示範或概念展示，不計入真實成交客戶數。
