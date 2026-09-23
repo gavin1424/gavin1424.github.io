@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#071426" />
+  <title>GreenSave VPP OS｜AI 能源需求滿足點控制系統</title>
+  <meta name="description" content="GreenSave VPP OS 以 AI 能源需求滿足點、最低必要能源、需求側節能與虛擬電廠聚合，建立可量測、可控制、可回饋的智慧能源管理系統。" />
+  <style>
+    :root{
+      --bg:#071426;
+      --bg2:#0a1b30;
+      --card:#0f2740cc;
+      --line:#1f4565;
+      --text:#ecf7ff;
+      --muted:#a9c3d8;
+      --cyan:#4fe3ff;
+      --blue:#4a8cff;
+      --green:#5de28d;
+      --amber:#ffc768;
+      --shadow:0 24px 70px rgba(0,0,0,.32);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      font-family:Inter,"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%,rgba(79,227,255,.12),transparent 32%),
+        radial-gradient(circle at 90% 15%,rgba(93,226,141,.10),transparent 28%),
+        linear-gradient(180deg,#06111f 0%,#071426 42%,#09182a 100%);
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1180px,calc(100% - 36px));margin:auto}
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(18px);
+      background:rgba(5,15,27,.78);
+      border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .navin{height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
+    .logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--cyan),var(--green));display:grid;place-items:center;box-shadow:0 0 32px rgba(79,227,255,.24)}
+    .logo svg{width:24px;height:24px}
+    .brand small{display:block;color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.8px;margin-top:2px}
+    .links{display:flex;gap:22px;color:#c6d9e8;font-size:14px}
+    .links a:hover{color:white}
+    .cta{padding:11px 18px;border-radius:999px;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04111f;font-weight:800}
+    .hero{padding:88px 0 54px}
+    .heroGrid{display:grid;grid-template-columns:1.08fr .92fr;gap:52px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(79,227,255,.25);border-radius:999px;background:rgba(79,227,255,.06);font-size:13px;color:#c7f6ff}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 18px var(--green)}
+    h1{font-size:clamp(42px,6vw,78px);line-height:1.03;margin:22px 0 22px;letter-spacing:-2.3px}
+    h1 span{background:linear-gradient(90deg,var(--cyan),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{font-size:19px;line-height:1.8;color:#c3d6e6;max-width:650px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{padding:14px 20px;border-radius:14px;font-weight:800;border:1px solid rgba(255,255,255,.12)}
+    .btn.primary{background:linear-gradient(135deg,var(--cyan),#64a7ff);color:#03111f;border:0}
+    .btn.secondary{background:rgba(255,255,255,.035)}
+    .mini{display:flex;gap:22px;flex-wrap:wrap;margin-top:30px;color:#a8c3d8;font-size:13px}
+    .mini b{color:white}
+    .device{
+      min-height:510px;border:1px solid rgba(255,255,255,.08);border-radius:32px;
+      background:linear-gradient(145deg,rgba(17,46,72,.9),rgba(8,25,43,.78));
+      box-shadow:var(--shadow);padding:26px;position:relative;overflow:hidden
+    }
+    .glow{position:absolute;width:300px;height:300px;border-radius:50%;filter:blur(80px);background:rgba(79,227,255,.16);right:-80px;top:-80px}
+    .panel{position:relative;z-index:2;background:#0a1d31;border:1px solid #1d4665;border-radius:20px;padding:20px}
+    .panelTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+    .online{color:var(--green);font-size:12px}
+    .kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .kpi{background:linear-gradient(180deg,#102a45,#0d2239);padding:16px;border-radius:16px;border:1px solid rgba(255,255,255,.06)}
+    .kpi small{color:var(--muted);display:block;margin-bottom:8px}
+    .kpi strong{font-size:25px}
+    .chart{height:150px;margin-top:16px;border-radius:16px;background:
+      linear-gradient(to top,rgba(79,227,255,.05),transparent),
+      repeating-linear-gradient(to right,transparent 0 52px,rgba(255,255,255,.045) 53px),
+      repeating-linear-gradient(to bottom,transparent 0 36px,rgba(255,255,255,.045) 37px);
+      position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.05)
+    }
+    .chart svg{position:absolute;inset:0;width:100%;height:100%}
+    .hw{display:flex;gap:11px;margin-top:16px}
+    .hw div{flex:1;padding:12px;border-radius:14px;background:#0b2036;border:1px solid rgba(255,255,255,.06);text-align:center;color:#b9cede;font-size:12px}
+    section{padding:72px 0}
+    .sectionHead{max-width:720px;margin-bottom:34px}
+    .sectionHead p{color:var(--muted);line-height:1.8}
+    h2{font-size:clamp(30px,4vw,48px);margin:0 0 14px;letter-spacing:-1px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:linear-gradient(160deg,rgba(17,42,67,.8),rgba(9,28,47,.72));border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);padding:24px;box-shadow:0 14px 50px rgba(0,0,0,.15)}
+    .icon{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:rgba(79,227,255,.09);color:var(--cyan);font-size:22px;margin-bottom:18px}
+    .card h3{margin:0 0 9px;font-size:20px}
+    .card p{margin:0;color:var(--muted);line-height:1.75;font-size:14px}
+    .flow{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+    .step{padding:18px 12px;border-radius:18px;border:1px solid rgba(255,255,255,.07);background:#0b2035;text-align:center;min-height:132px;display:flex;flex-direction:column;justify-content:center}
+    .step b{color:var(--cyan);font-size:13px;margin-bottom:8px}
+    .step span{font-weight:800}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .systemList{display:grid;gap:12px}
+    .row{display:flex;justify-content:space-between;align-items:center;padding:15px 16px;border-radius:14px;background:#0b2036;border:1px solid rgba(255,255,255,.055)}
+    .row small{color:var(--muted)}
+    .pill{padding:6px 10px;border-radius:999px;background:rgba(93,226,141,.10);color:var(--green);font-size:12px}
+    .cases{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .case{padding:24px 18px;border-radius:20px;border:1px solid rgba(255,255,255,.06);background:#0b1f34;text-align:center}
+    .case .emoji{font-size:30px;margin-bottom:10px}
+    .note{margin-top:18px;padding:16px 18px;border-left:3px solid var(--amber);background:rgba(255,199,104,.06);color:#d9caa9;border-radius:0 14px 14px 0;font-size:13px;line-height:1.7}
+    .patent{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:28px;border-radius:26px;background:linear-gradient(120deg,rgba(74,140,255,.14),rgba(93,226,141,.10));border:1px solid rgba(113,180,255,.18)}
+    .patent p{margin:6px 0 0;color:var(--muted);line-height:1.7}
+    footer{padding:40px 0 70px;color:#7896ad;font-size:13px}
+    .footerIn{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    @media (max-width:900px){
+      .links{display:none}
+      .heroGrid,.split{grid-template-columns:1fr}
+      .hero{padding-top:56px}
+      .device{min-height:auto}
+      .grid3{grid-template-columns:1fr}
+      .flow{grid-template-columns:repeat(2,1fr)}
+      .cases{grid-template-columns:repeat(2,1fr)}
+      h1{letter-spacing:-1.4px}
+    }
+    @media (max-width:520px){
+      .wrap{width:min(100% - 24px,1180px)}
+      .navin{height:64px}
+      .cta{display:none}
+      .hero{padding-top:38px}
+      .lead{font-size:16px}
+      .actions .btn{width:100%;text-align:center}
+      .kpis{grid-template-columns:1fr 1fr}
+      .flow{grid-template-columns:1fr 1fr}
+      .cases{grid-template-columns:1fr 1fr}
+      .patent{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap navin">
+      <a class="brand" href="#top">
+        <span class="logo">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 13.5 10 3l1.2 7H20L11 21l-1.1-7.5H4Z" fill="#06111f"/></svg>
+        </span>
+        <span>GreenSave VPP OS<small>AI ENERGY CONTROL</small></span>
+      </a>
+      <div class="links">
+        <a href="#core">核心技術</a>
+        <a href="#architecture">系統架構</a>
+        <a href="#hardware">硬體整合</a>
+        <a href="#cases">應用場景</a>
+      </div>
+      <a class="cta" href="#architecture">查看系統</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <div class="hero">
+      <div class="wrap heroGrid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> 台灣發明／新型專利申請中</div>
+          <h1>讓每一度電<br><span>用在剛好的地方</span></h1>
+          <p class="lead">
+            GreenSave VPP OS 以「能源需求滿足點」為核心，結合即時量測、最低必要能源判斷、
+            AI 控制、需求側節能與虛擬電廠聚合，讓家庭、商業與工業用電從「看得到」進一步做到「能驗證、能控制、能回饋」。
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#core">了解核心技術</a>
+            <a class="btn secondary" href="#hardware">查看 MVP-01E</a>
+          </div>
+          <div class="mini">
+            <span><b>HTTPS</b> 實機資料</span>
+            <span><b>ESP32</b> 邊緣控制</span>
+            <span><b>AI</b> 需求側最佳化</span>
+            <span><b>VPP</b> 聚合調度</span>
+          </div>
+        </div>
+
+        <div class="device" aria-label="GreenSave 能源管理示意儀表板">
+          <div class="glow"></div>
+          <div class="panel">
+            <div class="panelTop">
+              <div><b>MVP01-TEST-001</b><br><small style="color:var(--muted)">GreenSave Energy Controller</small></div>
+              <div class="online">● ONLINE</div>
+            </div>
+            <div class="kpis">
+              <div class="kpi"><small>即時功率</small><strong>664 W</strong></div>
+              <div class="kpi"><small>最低必要能源</small><strong>542 W</strong></div>
+              <div class="kpi"><small>需求滿足度</small><strong>96%</strong></div>
+              <div class="kpi"><small>可調整空間</small><strong>122 W</strong></div>
+            </div>
+            <div class="chart">
+              <svg viewBox="0 0 600 180" preserveAspectRatio="none">
+                <path d="M0 135 C70 122,90 145,150 116 S260 112,320 88 S410 105,465 70 S540 80,600 48" fill="none" stroke="#4fe3ff" stroke-width="4"/>
+                <path d="M0 150 C90 142,130 138,190 130 S310 120,380 112 S500 104,600 96" fill="none" stroke="#5de28d" stroke-width="3" stroke-dasharray="8 7"/>
+              </svg>
+            </div>
+            <div class="hw">
+              <div>110 / 220V<br><b>電力量測</b></div>
+              <div>SHT31<br><b>溫濕度</b></div>
+              <div>HTTPS<br><b>雲端回報</b></div>
+              <div>Safety<br><b>本機聯鎖</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="core">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>不是只看耗電，而是判斷「需求是否已經滿足」</h2>
+          <p>GreenSave 的核心不是單純把電關掉，而是在設備功能、安全條件與使用需求被滿足的前提下，辨識可被降低、延後或重新分配的能源需求。</p>
+        </div>
+        <div class="grid3">
+          <article class="card"><div class="icon">◎</div><h3>能源需求滿足點</h3><p>整合設備狀態、環境條件、使用需求與歷史資料，判斷目前功能需求是否已經達成。</p></article>
+          <article class="card"><div class="icon">↘</div><h3>最低必要能源</h3><p>在維持功能與安全條件下，計算維持需求所需的最低能源區間，尋找不必要的能源輸出。</p></article>
+          <article class="card"><div class="icon">↻</div><h3>閉環學習控制</h3><p>控制後重新量測，將實際結果、偏差與警報回饋模型，形成持續修正的閉環控制。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>量測 → 判斷 → 控制 → 回饋 → 聚合</h2>
+          <p>單一設備的節能可以成為可驗證的需求側彈性；多設備、多場域再進一步聚合，形成可供 VPP 協同調度的能源資源。</p>
+        </div>
+        <div class="flow">
+          <div class="step"><b>01</b><span>即時量測</span></div>
+          <div class="step"><b>02</b><span>需求滿足點</span></div>
+          <div class="step"><b>03</b><span>最低必要能源</span></div>
+          <div class="step"><b>04</b><span>安全控制</span></div>
+          <div class="step"><b>05</b><span>實測回饋</span></div>
+          <div class="step"><b>06</b><span>VPP 聚合</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="hardware">
+      <div class="wrap split">
+        <div>
+          <div class="sectionHead">
+            <h2>MVP-01E 實體能源控制器</h2>
+            <p>軟體已採 HTTPS API 與裝置金鑰驗證架構；硬體端由 ESP32 負責感測、離線緩存、安全聯鎖與控制執行。</p>
+          </div>
+          <div class="systemList">
+            <div class="row"><span>ESP32 邊緣控制</span><span class="pill">Edge</span></div>
+            <div class="row"><span>110V / 220V 電力量測</span><span class="pill">Metering</span></div>
+            <div class="row"><span>SHT31 溫濕度</span><span class="pill">Sensor</span></div>
+            <div class="row"><span>MicroSD 斷網緩存</span><span class="pill">Backfill</span></div>
+            <div class="row"><span>過流／過溫／短循環保護</span><span class="pill">Safety</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="font-size:24px;margin-top:0">GreenSave Cloud</h3>
+          <p style="margin-bottom:20px">Staging 架構已完成 HTTPS、裝置驗證、Telemetry、Batch、Command、ACK、Alarm、History 與 ESP32 Simulator。</p>
+          <div class="systemList">
+            <div class="row"><div><b>Telemetry</b><br><small>電壓／電流／實功率／PF／Hz／kWh</small></div><span class="pill">5 sec</span></div>
+            <div class="row"><div><b>Command + ACK</b><br><small>控制命令與實際執行結果分離</small></div><span class="pill">Verified</span></div>
+            <div class="row"><div><b>Safety Reject</b><br><small>本機安全聯鎖優先於雲端命令</small></div><span class="pill">Local-first</span></div>
+            <div class="row"><div><b>AI Controller App</b><br><small>模擬模式與實體設備模式並存</small></div><span class="pill">Android</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cases">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>從家庭節能走向分散式能源聚合</h2>
+          <p>同一套架構可從單一負載擴展至多設備、多建築與可控能源資源，逐步形成更大的需求側調度能力。</p>
+        </div>
+        <div class="cases">
+          <div class="case"><div class="emoji">🏠</div><b>家庭住宅</b><p style="color:var(--muted);font-size:13px">冷氣、熱水、照明、插座</p></div>
+          <div class="case"><div class="emoji">🏢</div><b>商辦建築</b><p style="color:var(--muted);font-size:13px">需量管理、削峰、排程</p></div>
+          <div class="case"><div class="emoji">🏭</div><b>工業場域</b><p style="color:var(--muted);font-size:13px">可控負載與能源效率</p></div>
+          <div class="case"><div class="emoji">🔋</div><b>EV／儲能</b><p style="color:var(--muted);font-size:13px">彈性資源與 VPP 協同</p></div>
+        </div>
+        <div class="note">網站中的功率、節能率與能源數字屬系統示範／估算資料，實際節能成效應以完成實體量測、基準模型與控制前後驗證後的結果為準。</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="patent">
+          <div>
+            <b style="font-size:22px">Patent Pending｜台灣專利申請中</b>
+            <p>GreenSave 的核心技術涵蓋能源需求滿足點、最低必要能源、自適應閉環控制、分散式能源聚合與等效避免新增能源需求等技術方向。</p>
+          </div>
+          <span class="pill" style="font-size:13px;padding:9px 13px">GreenSave VPP OS</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footerIn">
+      <span>© 2026 GreenSave VPP OS</span>
+      <span>AI Energy Demand Satisfaction Control · Smart Energy · VPP</span>
+    </div>
+  </footer>
+</body>
+</html>
