@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SoulHub 身心靈園地｜找到適合你的老師與課程</title>
+<meta name="description" content="SoulHub 身心靈園地：瑜伽、占卜、星座分析、冥想、能量療癒、芳療、頌缽與身心靈課程的老師開業與預約平台。">
+<style>
+:root{--ink:#25332d;--muted:#6e776f;--green:#506f61;--cream:#f7f3ed;--card:#fff;--lav:#eee8f4;--rose:#f5e8e6;--sage:#e6efe9;--line:#e6e2dc;--shadow:0 12px 35px rgba(45,60,51,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;color:var(--ink);background:#fbfaf7}.wrap{max-width:1180px;margin:auto;padding:0 20px}
+header{position:sticky;top:0;z-index:30;background:rgba(251,250,247,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(230,226,220,.8)}
+.nav{height:72px;display:flex;align-items:center;gap:28px}.brand{display:flex;align-items:center;gap:10px;font-family:serif;font-size:26px;font-weight:700;white-space:nowrap}.lotus{width:38px;height:38px;border:2px solid var(--green);border-radius:50% 50% 46% 46%;display:grid;place-items:center;font-size:21px}.navlinks{display:flex;gap:22px;align-items:center;flex:1}.nav a{color:var(--ink);text-decoration:none;font-size:14px}.nav-actions{display:flex;gap:10px}.btn{border:0;border-radius:999px;padding:11px 18px;font-weight:700;cursor:pointer}.btn.primary{background:var(--green);color:white}.btn.soft{background:#efeae3;color:var(--ink)}.menu{display:none;font-size:24px;background:none;border:0}
+.hero{padding:34px 0 24px}.hero-grid{display:grid;grid-template-columns:1.5fr .7fr;gap:18px}.hero-main{min-height:420px;border-radius:28px;overflow:hidden;position:relative;background:linear-gradient(90deg,rgba(247,243,237,.95) 0%,rgba(247,243,237,.78) 42%,rgba(247,243,237,.12) 72%),url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1800&q=85') center/cover}.hero-copy{max-width:620px;padding:54px 48px}.eyebrow{letter-spacing:.18em;font-size:12px;color:var(--green);font-weight:800}.hero h1{font-family:serif;font-size:52px;line-height:1.16;margin:14px 0 12px}.hero p{color:#5d675f;line-height:1.8;font-size:17px}.search{display:flex;background:white;padding:7px;border-radius:999px;box-shadow:var(--shadow);margin-top:24px}.search input{border:0;outline:none;flex:1;padding:0 16px;font-size:15px;background:transparent}.side-stack{display:grid;gap:18px}.side-card{border-radius:24px;padding:26px;background:var(--sage);min-height:195px;display:flex;flex-direction:column;justify-content:space-between}.side-card:nth-child(2){background:var(--lav)}.side-card h3{font-family:serif;font-size:25px;margin:0 0 8px}.side-card p{margin:0;color:var(--muted);line-height:1.6}
+.section{padding:34px 0}.section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:18px}.section h2{font-family:serif;font-size:32px;margin:0}.section-head p{margin:6px 0 0;color:var(--muted)}.link{color:var(--green);font-weight:800;font-size:14px}
+.cats{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.cat{background:white;border:1px solid var(--line);border-radius:18px;padding:18px 12px;text-align:center;cursor:pointer;transition:.2s}.cat:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.cat .icon{font-size:28px;display:block;margin-bottom:8px}.cat span{font-size:14px;font-weight:700}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:white;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 5px 18px rgba(50,60,52,.04)}.teacher-img{height:210px;background-size:cover;background-position:center}.card-body{padding:16px}.card h3{margin:0 0 5px;font-size:18px}.meta{color:var(--muted);font-size:13px;line-height:1.6}.tags{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}.tag{font-size:12px;background:#f2f0ec;padding:5px 8px;border-radius:999px}.rating{font-size:13px;color:#8a6540}.price{font-weight:800;color:#8d4d42;margin-top:10px}
+.course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.course .pic{height:165px;background-size:cover;background-position:center}.badge{display:inline-block;background:#fff6db;color:#7d6632;border-radius:999px;padding:5px 9px;font-size:11px;font-weight:800;margin-bottom:8px}
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.feature{background:linear-gradient(135deg,#f1eee7,#ebe4ed);border-radius:28px;padding:34px}.feature h3{font-family:serif;font-size:30px;margin:0 0 10px}.benefits{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.benefit{background:white;border-radius:16px;padding:16px;border:1px solid var(--line)}.benefit b{display:block;margin-bottom:6px}.benefit span{color:var(--muted);font-size:13px;line-height:1.6}
+.teacher-cta{background:linear-gradient(135deg,#dfeae3,#f5eee6);border-radius:28px;padding:34px}.teacher-cta ul{padding-left:20px;color:#5f695f;line-height:2}
+.article-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.article{padding:20px;background:white;border:1px solid var(--line);border-radius:18px}.article small{color:var(--green);font-weight:700}.article h3{font-family:serif;margin:10px 0;font-size:21px}.article p{color:var(--muted);font-size:14px;line-height:1.7}
+.notice{margin:22px 0;background:#f7efe5;border-radius:16px;padding:16px 18px;color:#6e6255;font-size:13px;line-height:1.7}
+footer{margin-top:30px;border-top:1px solid var(--line);padding:34px 0 44px;color:var(--muted)}.footer-grid{display:flex;justify-content:space-between;gap:30px}.foot-links{display:flex;gap:18px;flex-wrap:wrap}
+.modal{position:fixed;inset:0;background:rgba(20,30,25,.45);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}.modal.open{display:flex}.modal-box{background:white;border-radius:24px;padding:28px;max-width:520px;width:100%;box-shadow:var(--shadow)}.modal-box input,.modal-box select,.modal-box textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;margin:7px 0;font:inherit}.modal-box .row{display:flex;gap:10px}.modal-box .row>*{flex:1}.close{float:right;border:0;background:none;font-size:24px;cursor:pointer}
+@media(max-width:900px){.navlinks{display:none}.nav-actions{margin-left:auto}.menu{display:block}.hero-grid,.split{grid-template-columns:1fr}.side-stack{grid-template-columns:1fr 1fr}.cats{grid-template-columns:repeat(3,1fr)}.cards{grid-template-columns:repeat(2,1fr)}.course-grid,.article-grid{grid-template-columns:1fr 1fr}.hero-main{min-height:440px}.hero-copy{padding:44px 30px}.hero h1{font-size:42px}}
+@media(max-width:600px){.wrap{padding:0 14px}.nav{height:64px;gap:10px}.brand{font-size:20px}.lotus{width:34px;height:34px}.nav-actions .soft{display:none}.btn{padding:10px 13px}.hero{padding-top:16px}.hero-main{min-height:520px;background:linear-gradient(180deg,rgba(247,243,237,.97) 0%,rgba(247,243,237,.84) 48%,rgba(247,243,237,.08) 76%),url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1000&q=82') 58% center/cover}.hero-copy{padding:34px 22px}.hero h1{font-size:38px}.hero p{font-size:15px}.search{border-radius:18px;align-items:center}.search .btn{border-radius:14px}.side-stack,.course-grid,.article-grid{grid-template-columns:1fr}.side-card{min-height:150px}.cats{grid-template-columns:repeat(3,1fr)}.cat{padding:14px 8px}.cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}.cards .card{min-width:78%;scroll-snap-align:start}.section{padding:26px 0}.section h2{font-size:27px}.section-head{align-items:flex-start}.benefits{grid-template-columns:1fr}.footer-grid{display:block}.foot-links{margin-top:18px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <div class="brand"><span class="lotus">✦</span><span>SoulHub <small style="font:12px sans-serif;color:#7d877f;display:block">身心靈園地</small></span></div>
+  <nav class="navlinks"><a href="#explore">探索服務</a><a href="#teachers">找老師</a><a href="#courses">課程活動</a><a href="#articles">文章靈感</a><a href="#join">老師開業</a></nav>
+  <div class="nav-actions"><button class="btn soft" onclick="toast('會員登入功能將串接正式帳號系統')">登入</button><button class="btn primary" onclick="openJoin()">成為老師</button></div>
+  <button class="menu" onclick="document.querySelector('.navlinks').style.display=document.querySelector('.navlinks').style.display==='flex'?'none':'flex'">☰</button>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap hero-grid">
+  <div class="hero-main"><div class="hero-copy">
+    <div class="eyebrow">DISCOVER · CONNECT · GROW</div>
+    <h1>身・心・靈<br>在這裡，遇見更完整的自己</h1>
+    <p>瑜伽、占卜、星座、冥想、能量、芳療與更多領域。找到適合你的專業老師，也讓每位老師都能擁有自己的線上事業。</p>
+    <div class="search"><input id="q" placeholder="搜尋老師、課程、星座、塔羅、瑜伽…"><button class="btn primary" onclick="searchAll()">搜尋</button></div>
+  </div></div>
+  <div class="side-stack">
+    <div class="side-card"><div><div class="eyebrow">TODAY</div><h3>每日星座靈感</h3><p>快速查看今日情緒、工作與關係提醒。</p></div><button class="btn soft" onclick="toast('星座分析專區可進一步串接會員出生資料')">查看今日指引 →</button></div>
+    <div class="side-card"><div><div class="eyebrow">1 ON 1</div><h3>預約一對一諮詢</h3><p>線上視訊或實體會面，自由選擇時段與老師。</p></div><button class="btn primary" onclick="document.querySelector('#teachers').scrollIntoView()">找老師 →</button></div>
+  </div>
+</div></section>
+
+<section id="explore" class="section"><div class="wrap">
+  <div class="section-head"><div><h2>探索不同的身心靈領域</h2><p>從日常練習到深度探索，依你的需求開始。</p></div></div>
+  <div class="cats">
+    <div class="cat" onclick="filterTag('瑜伽')"><span class="icon">🧘</span><span>瑜伽</span></div>
+    <div class="cat" onclick="filterTag('占卜')"><span class="icon">🃏</span><span>塔羅占卜</span></div>
+    <div class="cat" onclick="filterTag('星座')"><span class="icon">✨</span><span>星座分析</span></div>
+    <div class="cat" onclick="filterTag('冥想')"><span class="icon">🌙</span><span>冥想正念</span></div>
+    <div class="cat" onclick="filterTag('能量')"><span class="icon">🔮</span><span>能量療癒</span></div>
+    <div class="cat" onclick="filterTag('芳療')"><span class="icon">🌿</span><span>芳療香氣</span></div>
+    <div class="cat" onclick="filterTag('頌缽')"><span class="icon">🎶</span><span>頌缽聲療</span></div>
+    <div class="cat" onclick="filterTag('關係')"><span class="icon">💗</span><span>情感關係</span></div>
+    <div class="cat" onclick="filterTag('人生')"><span class="icon">🧭</span><span>生涯探索</span></div>
+    <div class="cat" onclick="filterTag('靈數')"><span class="icon">🔢</span><span>生命靈數</span></div>
+    <div class="cat" onclick="filterTag('飲食')"><span class="icon">🍵</span><span>飲食生活</span></div>
+    <div class="cat" onclick="toast('更多分類：花精、寵物溝通、書寫、藝術療癒、呼吸練習…')"><span class="icon">＋</span><span>更多領域</span></div>
+  </div>
+</div></section>
+
+<section id="teachers" class="section"><div class="wrap">
+  <div class="section-head"><div><h2>精選老師</h2><p>老師可建立個人頁、服務項目、價格、時段與課程。</p></div><span class="link">查看全部老師 →</span></div>
+  <div class="cards" id="teacherCards">
+    <article class="card" data-tags="瑜伽 冥想"><div class="teacher-img" style="background-image:url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=80')"></div><div class="card-body"><h3>Lina 老師</h3><div class="meta">瑜伽 · 正念冥想｜台北／線上</div><div class="tags"><span class="tag">瑜伽</span><span class="tag">冥想</span><span class="tag">一對一</span></div><div class="rating">★ 4.9 · 128 則評價</div><div class="price">NT$ 1,200 起</div></div></article>
+    <article class="card" data-tags="占卜 塔羅 靈數"><div class="teacher-img" style="background-image:url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80')"></div><div class="card-body"><h3>晨宇老師</h3><div class="meta">塔羅占卜 · 生命靈數｜線上</div><div class="tags"><span class="tag">占卜</span><span class="tag">塔羅</span><span class="tag">靈數</span></div><div class="rating">★ 4.8 · 96 則評價</div><div class="price">NT$ 880 起</div></div></article>
+    <article class="card" data-tags="星座 占星 關係"><div class="teacher-img" style="background-image:url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80')"></div><div class="card-body"><h3>星語 Michelle</h3><div class="meta">西洋占星 · 關係分析｜台中／線上</div><div class="tags"><span class="tag">星座</span><span class="tag">占星</span><span class="tag">關係</span></div><div class="rating">★ 5.0 · 142 則評價</div><div class="price">NT$ 1,500 起</div></div></article>
+    <article class="card" data-tags="能量 頌缽 芳療"><div class="teacher-img" style="background-image:url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=700&q=80')"></div><div class="card-body"><h3>安然老師</h3><div class="meta">頌缽 · 能量平衡 · 芳療｜高雄</div><div class="tags"><span class="tag">頌缽</span><span class="tag">能量</span><span class="tag">芳療</span></div><div class="rating">★ 4.9 · 87 則評價</div><div class="price">NT$ 1,600 起</div></div></article>
+  </div>
+</div></section>
+
+<section id="courses" class="section"><div class="wrap">
+  <div class="section-head"><div><h2>熱門課程與活動</h2><p>線上課、直播、工作坊、實體課與一對一服務都可上架。</p></div><span class="link">查看全部課程 →</span></div>
+  <div class="course-grid">
+    <article class="card course"><div class="pic" style="background-image:url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=80')"></div><div class="card-body"><span class="badge">實體課程</span><h3>晨光流動瑜伽</h3><div class="meta">週六 10:00 · 90 分鐘 · 台北</div><div class="price">NT$ 1,680</div></div></article>
+    <article class="card course"><div class="pic" style="background:linear-gradient(135deg,#2f3348,#7b6b89);display:grid;place-items:center;color:white;font-size:58px">🃏</div><div class="card-body"><span class="badge">線上工作坊</span><h3>塔羅入門：從牌義到解讀</h3><div class="meta">4 堂直播 · 附回放 · 初學者適合</div><div class="price">NT$ 1,280</div></div></article>
+    <article class="card course"><div class="pic" style="background:linear-gradient(135deg,#1e3347,#6d7c9b);display:grid;place-items:center;color:white;font-size:58px">🌌</div><div class="card-body"><span class="badge">線上講座</span><h3>你的星盤與人生方向</h3><div class="meta">出生星盤 · 關係 · 職涯主題</div><div class="price">NT$ 980</div></div></article>
+  </div>
+</div></section>
+
+<section class="section"><div class="wrap split">
+  <div class="feature"><div class="eyebrow">PLATFORM FEATURES</div><h3>不只是找老師，而是一段完整的探索旅程</h3><div class="benefits">
+    <div class="benefit"><b>📅 預約與行事曆</b><span>選時段、線上／實體、改期與提醒。</span></div>
+    <div class="benefit"><b>💳 課程與付款</b><span>單堂、套票、團課、訂閱會員都可規劃。</span></div>
+    <div class="benefit"><b>❤️ 收藏與追蹤</b><span>收藏喜歡的老師、課程與文章。</span></div>
+    <div class="benefit"><b>⭐ 真實評價</b><span>完成服務後才能留下心得，建立信任。</span></div>
+    <div class="benefit"><b>💬 社群與問答</b><span>主題社團、分享文章、活動與交流。</span></div>
+    <div class="benefit"><b>🔔 個人提醒</b><span>預約、直播、課程與每日練習通知。</span></div>
+  </div></div>
+  <div id="join" class="teacher-cta"><div class="eyebrow">FOR TEACHERS</div><h3 style="font-family:serif;font-size:30px;margin:8px 0">成為 SoulHub 老師</h3><p class="meta" style="font-size:15px">讓瑜伽老師、占卜師、占星師與各領域講師，都能快速建立自己的線上事業。</p><ul><li>老師個人品牌頁與服務介紹</li><li>自由設定價格、名額、時段與地點</li><li>課程、直播、工作坊、一對一諮詢</li><li>訂單、學員、評價與營收後台</li><li>平台曝光與主題活動推薦</li></ul><button class="btn primary" onclick="openJoin()">立即申請開業 →</button></div>
+</div></section>
+
+<section id="articles" class="section"><div class="wrap">
+  <div class="section-head"><div><h2>文章與靈感</h2><p>以知識內容建立信任，也讓老師持續經營自己的專業。</p></div></div>
+  <div class="article-grid">
+    <article class="article"><small>正念生活</small><h3>每天 5 分鐘，建立屬於自己的安定練習</h3><p>從呼吸、身體掃描到簡短書寫，用簡單方法開始。</p></article>
+    <article class="article"><small>占星入門</small><h3>太陽、月亮、上升星座分別代表什麼？</h3><p>用容易理解的方式認識星盤中的三個常見核心元素。</p></article>
+    <article class="article"><small>塔羅知識</small><h3>第一次占卜前，可以先準備哪些問題？</h3><p>把問題從「會不會」改成「我可以怎麼做」，獲得更實用的整理方向。</p></article>
+  </div>
+  <div class="notice">平台內容以生活探索、課程與一般性身心靈服務為主，不取代醫療、心理治療、法律或財務等專業服務；涉及健康或高風險議題時，應尋求合格專業人員協助。</div>
+</div></section>
+</main>
+
+<footer><div class="wrap footer-grid"><div><div class="brand"><span class="lotus">✦</span>SoulHub</div><p>連結內在，活出更好的自己。</p></div><div class="foot-links"><span>關於我們</span><span>老師規範</span><span>使用條款</span><span>隱私政策</span><span>客服中心</span><span>合作提案</span></div></div></footer>
+
+<div id="joinModal" class="modal" onclick="if(event.target===this)closeJoin()"><div class="modal-box"><button class="close" onclick="closeJoin()">×</button><h2 style="font-family:serif;margin-top:0">申請成為老師</h2><p class="meta">這是展示版表單；正式版可串接會員、審核、付款與老師後台。</p><div class="row"><input placeholder="姓名／品牌名稱"><select><option>選擇主要領域</option><option>瑜伽</option><option>塔羅占卜</option><option>占星／星座</option><option>冥想正念</option><option>能量／頌缽</option><option>芳療</option><option>其他</option></select></div><input placeholder="聯絡方式"><textarea rows="4" placeholder="簡介、證照或服務經驗"></textarea><button class="btn primary" style="width:100%;margin-top:8px" onclick="closeJoin();toast('申請資料已完成示範送出')">送出申請</button></div></div>
+<div id="toast" style="position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#25332d;color:white;padding:12px 18px;border-radius:999px;display:none;z-index:70;box-shadow:var(--shadow);font-size:14px"></div>
+<script>
+function toast(t){const e=document.getElementById('toast');e.textContent=t;e.style.display='block';clearTimeout(window.__to);window.__to=setTimeout(()=>e.style.display='none',2600)}
+function openJoin(){document.getElementById('joinModal').classList.add('open')}
+function closeJoin(){document.getElementById('joinModal').classList.remove('open')}
+function filterTag(tag){document.querySelector('#teachers').scrollIntoView();document.querySelectorAll('#teacherCards .card').forEach(c=>c.style.display=c.dataset.tags.includes(tag)?'block':'none');toast('已篩選：'+tag+' 老師')}
+function searchAll(){const q=document.getElementById('q').value.trim();if(!q){toast('請輸入想搜尋的老師、課程或主題');return}document.querySelector('#teachers').scrollIntoView();let n=0;document.querySelectorAll('#teacherCards .card').forEach(c=>{const ok=c.innerText.includes(q)||c.dataset.tags.includes(q);c.style.display=ok?'block':'none';if(ok)n++});toast(n?'找到 '+n+' 位相關老師':'目前展示資料沒有「'+q+'」，正式版可搜尋全站')}
+</script>
+</body></html>
