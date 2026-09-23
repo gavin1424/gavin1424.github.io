@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#f7f3ed" />
+<title>心靈園地 Soul Garden｜瑜伽・占卜・星座・身心靈老師平台</title>
+<meta name="description" content="集合瑜伽、塔羅、占星、冥想、能量療癒、芳療與身心靈老師的預約與課程平台。" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:root{
+  --ink:#25362f; --muted:#6f7b74; --bg:#f8f5ef; --paper:#fffdf9;
+  --sage:#4d7564; --sage2:#dbe7df; --rose:#eadbd8; --lav:#e8e2ef;
+  --sand:#efe3d1; --line:#e7e0d7; --shadow:0 18px 50px rgba(59,68,61,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Noto Sans TC",system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+button,input,select,textarea{font:inherit}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.container{width:min(1200px,calc(100% - 32px));margin:auto}
+.serif{font-family:"Noto Serif TC",serif}
+header{position:sticky;top:0;z-index:30;background:rgba(248,245,239,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(231,224,215,.8)}
+.nav{height:72px;display:flex;align-items:center;gap:28px}
+.brand{display:flex;align-items:center;gap:11px;min-width:180px}
+.brand-mark{width:39px;height:39px;border:1.5px solid var(--sage);border-radius:50% 50% 45% 55%;display:grid;place-items:center;color:var(--sage);font-size:22px}
+.brand strong{font-family:"Noto Serif TC";font-size:20px;letter-spacing:.08em}
+.brand small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+.navlinks{display:flex;gap:22px;margin-left:8px;flex:1}
+.navlinks a{font-size:14px;color:#47544d}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.icon-btn,.ghost,.primary{border:0;cursor:pointer;border-radius:999px;transition:.2s}
+.icon-btn{width:40px;height:40px;background:transparent;font-size:20px}
+.ghost{padding:10px 16px;background:#fff;border:1px solid var(--line);color:var(--ink)}
+.primary{padding:11px 18px;background:var(--sage);color:white}
+.primary:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(77,117,100,.22)}
+.menu-btn{display:none}
+.hero{padding:24px 0 8px}
+.hero-grid{display:grid;grid-template-columns:1.65fr .75fr;gap:18px}
+.hero-main{min-height:470px;border-radius:28px;overflow:hidden;position:relative;background:#cfd9d1}
+.hero-main::before{content:"";position:absolute;inset:0;background:
+linear-gradient(90deg,rgba(248,245,239,.96) 0%,rgba(248,245,239,.83) 33%,rgba(248,245,239,.12) 66%,rgba(248,245,239,0) 100%);z-index:1}
+.hero-main .hero-photo{position:absolute;inset:0;background:url("https://images.unsplash.com/photo-1758274529488-de77fa2e7773?auto=format&fit=crop&fm=jpg&q=82&w=2200") center/cover}
+.hero-copy{position:relative;z-index:2;padding:64px 54px;max-width:650px}
+.eyebrow{font-size:12px;letter-spacing:.22em;color:#66776e;text-transform:uppercase}
+.hero h1{font-family:"Noto Serif TC";font-weight:600;font-size:48px;line-height:1.38;margin:15px 0 14px;letter-spacing:.06em}
+.hero p{color:#56635c;line-height:1.8;font-size:16px}
+.searchbar{margin-top:28px;background:white;border:1px solid rgba(222,214,204,.95);border-radius:999px;padding:6px;display:flex;align-items:center;box-shadow:0 12px 36px rgba(55,68,61,.12);max-width:590px}
+.searchbar i{font-size:19px;margin-left:13px;color:#6f7b74}
+.searchbar input{border:0;outline:0;flex:1;padding:12px 10px;background:transparent;min-width:0}
+.searchbar button{border:0;background:var(--sage);color:white;padding:12px 21px;border-radius:999px;cursor:pointer}
+.quicktags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.quicktags button{border:1px solid rgba(77,117,100,.16);background:rgba(255,255,255,.77);padding:7px 11px;border-radius:999px;color:#4f6258;cursor:pointer}
+.side-stack{display:grid;grid-template-rows:1fr 1fr;gap:18px}
+.side-card{border-radius:28px;padding:28px;position:relative;overflow:hidden;background:var(--paper);border:1px solid var(--line)}
+.side-card h3{font-family:"Noto Serif TC";margin:0 0 10px;font-size:24px}
+.side-card p{margin:0 0 18px;color:#69766f;line-height:1.7}
+.stars{background:linear-gradient(145deg,#eee8f5,#fbf7ed)}
+.stars .orb{position:absolute;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.42);right:-40px;top:-40px}
+.teacher-cta{background:linear-gradient(145deg,#e3ece6,#fbf7ed)}
+.section{padding:34px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:18px}
+.section-head h2{font-family:"Noto Serif TC";font-size:30px;margin:0 0 4px}
+.section-head p{margin:0;color:var(--muted)}
+.section-head a,.section-head button{background:none;border:0;color:var(--sage);cursor:pointer}
+.categories{display:grid;grid-template-columns:repeat(9,1fr);gap:12px}
+.category{border:1px solid var(--line);background:rgba(255,255,255,.7);border-radius:22px;padding:17px 8px;text-align:center;cursor:pointer;transition:.18s}
+.category:hover,.category.active{transform:translateY(-2px);background:#fff;box-shadow:0 10px 24px rgba(75,90,81,.09)}
+.category i{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;margin:0 auto 9px;font-size:23px}
+.category:nth-child(3n+1) i{background:#efe2d4;color:#8f6949}
+.category:nth-child(3n+2) i{background:#e3ece6;color:#4d7564}
+.category:nth-child(3n) i{background:#e9e4ef;color:#746383}
+.category span{font-size:13px}
+.teacher-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.teacher-card{background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;cursor:pointer;transition:.2s;position:relative}
+.teacher-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.teacher-img{height:230px;background:#ddd;position:relative}
+.teacher-card .fav{position:absolute;right:13px;top:13px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.88);font-size:18px;cursor:pointer;z-index:2}
+.teacher-body{padding:16px}
+.teacher-body h3{margin:0 0 4px;font-size:18px}
+.teacher-body .field{color:var(--sage);font-size:13px}
+.teacher-body p{font-size:13px;color:var(--muted);line-height:1.65;min-height:42px}
+.meta{display:flex;justify-content:space-between;align-items:center;color:#6e786f;font-size:12px}
+.rating{color:#b77a2e}
+.empty{display:none;background:#fff;border:1px dashed #cabfb2;border-radius:20px;padding:34px;text-align:center;color:var(--muted)}
+.course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.course-card{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.course-photo{height:180px}
+.course-body{padding:17px}
+.badge{display:inline-flex;padding:5px 9px;border-radius:999px;background:var(--sage2);color:var(--sage);font-size:11px}
+.course-body h3{font-family:"Noto Serif TC";font-size:20px;margin:10px 0 8px}
+.course-body p{font-size:13px;color:var(--muted);line-height:1.6}
+.course-foot{display:flex;justify-content:space-between;align-items:center;margin-top:15px}
+.price{font-weight:700;color:#835c4d}
+.platform{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.soft-panel{border-radius:26px;padding:32px;background:#fff;border:1px solid var(--line)}
+.soft-panel h3{font-family:"Noto Serif TC";font-size:25px;margin-top:0}
+.features{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
+.feature{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:18px;background:#f8f6f2}
+.feature i{font-size:21px;color:var(--sage)}
+.feature strong{font-size:14px}
+.feature small{display:block;color:var(--muted);line-height:1.5;margin-top:4px}
+.teacher-panel{background:linear-gradient(145deg,#e6eee8,#f5eee8)}
+.teacher-panel ul{padding-left:0;list-style:none}
+.teacher-panel li{margin:12px 0;color:#536159}
+.teacher-panel li i{color:var(--sage);margin-right:8px}
+.note{font-size:12px;color:#78827c;line-height:1.6;margin-top:15px}
+footer{margin-top:28px;background:#edf0eb;border-top:1px solid #dde4dd;padding:34px 0 92px}
+.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:24px}
+.footer-grid h4{margin:0 0 12px}
+.footer-grid p,.footer-grid a{font-size:13px;color:#6d7871;line-height:1.8}
+.footer-links{display:grid;gap:7px}
+.copyright{margin-top:28px;border-top:1px solid #d9dfd9;padding-top:18px;color:#7d877f;font-size:12px}
+.modal{position:fixed;inset:0;background:rgba(28,39,34,.48);z-index:60;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.dialog{width:min(720px,100%);max-height:88vh;overflow:auto;background:var(--paper);border-radius:26px;box-shadow:0 28px 80px rgba(21,35,29,.30)}
+.dialog-head{position:sticky;top:0;background:rgba(255,253,249,.96);backdrop-filter:blur(12px);padding:18px 22px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;z-index:2}
+.dialog-head h3{margin:0;font-family:"Noto Serif TC";font-size:23px}
+.close{border:0;background:#f1ede8;width:38px;height:38px;border-radius:50%;font-size:20px;cursor:pointer}
+.dialog-body{padding:24px}
+.profile-top{display:grid;grid-template-columns:150px 1fr;gap:20px}
+.profile-top img{height:150px;border-radius:20px}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}
+.chip{font-size:11px;background:#f0eee9;border-radius:999px;padding:6px 9px;color:#5f6c64}
+.times{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 18px}
+.time{border:1px solid var(--line);background:white;border-radius:11px;padding:9px 12px;cursor:pointer}
+.time.active{background:var(--sage);color:#fff;border-color:var(--sage)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fieldbox label{display:block;font-size:12px;color:#6c766f;margin-bottom:6px}
+.fieldbox input,.fieldbox select,.fieldbox textarea{width:100%;padding:12px 13px;border:1px solid #dcd5cc;border-radius:12px;background:#fff;outline:0}
+.fieldbox textarea{min-height:94px;resize:vertical}
+.full{grid-column:1/-1}
+.success{display:none;padding:14px;border-radius:14px;background:#e8f2eb;color:#40634f;margin-top:14px}
+.mobilebar{display:none}
+@media (max-width:980px){
+  .navlinks{display:none}.nav-actions .ghost{display:none}.menu-btn{display:block}
+  .hero-grid{grid-template-columns:1fr}.side-stack{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .categories{grid-template-columns:repeat(5,1fr)}
+  .teacher-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:680px){
+  .container{width:min(100% - 22px,1200px)} .nav{height:62px;gap:8px}.brand{min-width:0;flex:1}.brand small{display:none}.brand strong{font-size:17px}.nav-actions .icon-btn{display:none}
+  .hero{padding-top:12px}.hero-main{min-height:510px;border-radius:22px}.hero-main::before{background:linear-gradient(180deg,rgba(248,245,239,.92) 0%,rgba(248,245,239,.72) 45%,rgba(248,245,239,.16) 100%)}
+  .hero-main .hero-photo{background-position:58% center}.hero-copy{padding:34px 23px}.hero h1{font-size:37px}.hero p{font-size:14px}.searchbar{margin-top:20px}.searchbar button{padding:11px 15px}
+  .side-stack{grid-template-columns:1fr}.side-card{border-radius:22px}.section{padding:28px 0}.section-head h2{font-size:25px}
+  .categories{display:flex;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:6px}.category{min-width:100px;scroll-snap-align:start}
+  .teacher-grid{display:flex;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:10px}.teacher-card{min-width:78vw;scroll-snap-align:start}
+  .course-grid{grid-template-columns:1fr}.platform{grid-template-columns:1fr}.features{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}.profile-top{grid-template-columns:95px 1fr}.profile-top img{height:95px}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}
+  .mobilebar{display:grid;position:fixed;bottom:0;left:0;right:0;z-index:40;grid-template-columns:repeat(4,1fr);background:rgba(255,253,249,.96);backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom))}
+  .mobilebar button{border:0;background:none;color:#5f6d65;font-size:11px}.mobilebar i{display:block;font-size:20px;margin-bottom:2px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#top">
+      <span class="brand-mark"><i class="ri-leaf-line"></i></span>
+      <span><strong>心靈園地</strong><small>Soul Garden・遇見更完整的自己</small></span>
+    </a>
+    <nav class="navlinks">
+      <a href="#teachers">探索老師</a><a href="#courses">課程活動</a><a href="#categories">服務分類</a><a href="#platform">平台特色</a><a href="#about">關於我們</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" aria-label="搜尋" onclick="document.getElementById('search').focus()"><i class="ri-search-line"></i></button>
+      <button class="ghost" onclick="openApply()">成為老師</button>
+      <button class="primary" onclick="scrollToTeachers()">開始探索</button>
+      <button class="icon-btn menu-btn" onclick="toggleMenu()" aria-label="選單"><i class="ri-menu-3-line"></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-main">
+      <div class="hero-photo"></div>
+      <div class="hero-copy">
+        <div class="eyebrow">Mind · Body · Soul</div>
+        <h1>身・心・靈，<br>在這裡遇見更完整的自己</h1>
+        <p>探索瑜伽、塔羅、占星、冥想、芳療與更多專業老師。<br>從一對一諮詢到線上課程，找到適合你的成長方式。</p>
+        <div class="searchbar">
+          <i class="ri-search-line"></i>
+          <input id="search" placeholder="搜尋老師、課程或主題，例如：瑜伽、塔羅、星盤" oninput="filterTeachers()" />
+          <button onclick="scrollToTeachers()">搜尋</button>
+        </div>
+        <div class="quicktags">
+          <button onclick="setCategory('瑜伽')">瑜伽</button>
+          <button onclick="setCategory('塔羅')">塔羅占卜</button>
+          <button onclick="setCategory('占星')">星座分析</button>
+          <button onclick="setCategory('冥想')">冥想正念</button>
+        </div>
+      </div>
+    </div>
+    <div class="side-stack">
+      <article class="side-card stars">
+        <div class="orb"></div>
+        <div class="eyebrow">TODAY'S SKY</div>
+        <h3>今日星象提醒</h3>
+        <p>把注意力放回自己。適合整理情緒、重新設定這週真正重要的事。</p>
+        <button class="ghost" onclick="setCategory('占星')">找占星老師 <i class="ri-arrow-right-line"></i></button>
+      </article>
+      <article class="side-card teacher-cta">
+        <div class="eyebrow">FOR TEACHERS</div>
+        <h3>把你的專業，變成線上事業</h3>
+        <p>建立老師頁面、上架服務、接受預約與課程報名，讓更多人找到你。</p>
+        <button class="primary" onclick="openApply()">申請成為老師</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="categories">
+  <div class="container">
+    <div class="section-head"><div><h2>探索不同的身心靈方式</h2><p>選一個現在最想靠近的方向</p></div><button onclick="setCategory('全部')">查看全部</button></div>
+    <div class="categories">
+      <button class="category active" data-cat="全部" onclick="setCategory('全部')"><i class="ri-apps-2-line"></i><span>全部</span></button>
+      <button class="category" data-cat="瑜伽" onclick="setCategory('瑜伽')"><i class="ri-mental-health-line"></i><span>瑜伽</span></button>
+      <button class="category" data-cat="塔羅" onclick="setCategory('塔羅')"><i class="ri-magic-line"></i><span>塔羅占卜</span></button>
+      <button class="category" data-cat="占星" onclick="setCategory('占星')"><i class="ri-star-line"></i><span>占星命理</span></button>
+      <button class="category" data-cat="冥想" onclick="setCategory('冥想')"><i class="ri-moon-line"></i><span>冥想正念</span></button>
+      <button class="category" data-cat="能量" onclick="setCategory('能量')"><i class="ri-sparkling-line"></i><span>能量療癒</span></button>
+      <button class="category" data-cat="芳療" onclick="setCategory('芳療')"><i class="ri-leaf-line"></i><span>芳療香氣</span></button>
+      <button class="category" data-cat="諮詢" onclick="setCategory('諮詢')"><i class="ri-heart-line"></i><span>身心諮詢</span></button>
+      <button class="category" data-cat="生活" onclick="setCategory('生活')"><i class="ri-cup-line"></i><span>生活養成</span></button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="teachers">
+  <div class="container">
+    <div class="section-head"><div><h2>精選老師</h2><p>依專長、服務方式與評價探索適合你的陪伴者</p></div><button onclick="setCategory('全部')">顯示全部</button></div>
+    <div class="teacher-grid" id="teacherGrid"></div>
+    <div class="empty" id="emptyState"><i class="ri-search-eye-line" style="font-size:30px"></i><p>目前沒有符合條件的老師，試試其他關鍵字或分類。</p></div>
+  </div>
+</section>
+
+<section class="section" id="courses">
+  <div class="container">
+    <div class="section-head"><div><h2>熱門課程與活動</h2><p>線上、實體、小班制與一對一都可以找到</p></div></div>
+    <div class="course-grid">
+      <article class="course-card">
+        <div class="course-photo"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1000&q=80" alt="瑜伽課程"></div>
+        <div class="course-body"><span class="badge">實體小班</span><h3>晨光流動瑜伽｜找回身體的節奏</h3><p>從呼吸、伸展到流動序列，適合初學者與想重新建立運動習慣的人。</p><div class="course-foot"><span class="price">NT$ 1,280</span><button class="ghost" onclick="openTeacher(0)">查看</button></div></div>
+      </article>
+      <article class="course-card">
+        <div class="course-photo"><img src="https://images.unsplash.com/photo-1600429991827-5224817554f8?auto=format&fit=crop&w=1000&q=80" alt="塔羅占卜"></div>
+        <div class="course-body"><span class="badge">線上直播</span><h3>塔羅入門｜從牌義到生活提問</h3><p>建立屬於自己的讀牌方式，學習如何把問題問得更清楚、解讀得更有脈絡。</p><div class="course-foot"><span class="price">NT$ 980</span><button class="ghost" onclick="openTeacher(1)">查看</button></div></div>
+      </article>
+      <article class="course-card">
+        <div class="course-photo"><img src="https://images.unsplash.com/photo-1532968961962-8a0cb3a2d4f5?auto=format&fit=crop&w=1000&q=80" alt="星空占星"></div>
+        <div class="course-body"><span class="badge">線上一對一</span><h3>本命星盤解析｜看見你的內在地圖</h3><p>從太陽、月亮、上升與主要相位，整理你的特質、關係模式與人生課題。</p><div class="course-foot"><span class="price">NT$ 1,800</span><button class="ghost" onclick="openTeacher(2)">查看</button></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="platform">
+  <div class="container platform">
+    <div class="soft-panel">
+      <div class="eyebrow">FOR EVERYONE</div>
+      <h3>不只是找老師，而是一段可持續的成長旅程</h3>
+      <div class="features">
+        <div class="feature"><i class="ri-calendar-check-line"></i><div><strong>預約與課程管理</strong><small>查看時段、提出預約、管理報名。</small></div></div>
+        <div class="feature"><i class="ri-video-chat-line"></i><div><strong>線上與實體服務</strong><small>一對一、團課、講座與工作坊。</small></div></div>
+        <div class="feature"><i class="ri-book-open-line"></i><div><strong>知識內容與文章</strong><small>老師可分享專業文章與入門內容。</small></div></div>
+        <div class="feature"><i class="ri-community-line"></i><div><strong>社群與追蹤</strong><small>收藏喜歡的老師與主題，持續交流。</small></div></div>
+      </div>
+    </div>
+    <div class="soft-panel teacher-panel">
+      <div class="eyebrow">OPEN YOUR PRACTICE</div>
+      <h3>老師可以在這裡開業</h3>
+      <ul>
+        <li><i class="ri-check-line"></i>建立個人品牌與專業介紹頁</li>
+        <li><i class="ri-check-line"></i>上架一對一服務、課程與活動</li>
+        <li><i class="ri-check-line"></i>設定價格、預約方式與可服務時段</li>
+        <li><i class="ri-check-line"></i>累積評價、文章與學員回饋</li>
+        <li><i class="ri-check-line"></i>未來可串接付款、會員與 LINE 通知</li>
+      </ul>
+      <button class="primary" onclick="openApply()">立即申請成為老師</button>
+      <div class="note">平台可依後續營運需求加入老師審核、抽成、金流、課程影音、訂閱制與商家後台。</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="about">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="brand"><span class="brand-mark"><i class="ri-leaf-line"></i></span><span><strong>心靈園地</strong><small>Soul Garden</small></span></div><p>讓不同領域的身心靈老師被看見，也讓每個人更容易找到適合自己的陪伴與學習方式。</p></div>
+      <div><h4>探索平台</h4><div class="footer-links"><a href="#teachers">老師</a><a href="#courses">課程與活動</a><a href="#categories">服務分類</a><a href="#platform">成為老師</a></div></div>
+      <div><h4>使用提醒</h4><p>占卜、占星與身心靈內容可作為自我探索與娛樂參考，不替代醫療、心理治療、法律或財務專業意見。</p></div>
+    </div>
+    <div class="copyright">© 2026 心靈園地 Soul Garden．Prototype v1</div>
+  </div>
+</footer>
+
+<div class="modal" id="teacherModal" onclick="modalBackdrop(event,'teacherModal')">
+  <div class="dialog">
+    <div class="dialog-head"><h3 id="modalTitle">老師資料</h3><button class="close" onclick="closeModal('teacherModal')"><i class="ri-close-line"></i></button></div>
+    <div class="dialog-body" id="teacherModalBody"></div>
+  </div>
+</div>
+
+<div class="modal" id="applyModal" onclick="modalBackdrop(event,'applyModal')">
+  <div class="dialog">
+    <div class="dialog-head"><h3>申請成為平台老師</h3><button class="close" onclick="closeModal('applyModal')"><i class="ri-close-line"></i></button></div>
+    <div class="dialog-body">
+      <p style="color:var(--muted);margin-top:0">留下基本資料，之後可進一步建立老師頁面、服務與課程。</p>
+      <form class="form-grid" onsubmit="submitApply(event)">
+        <div class="fieldbox"><label>姓名 / 品牌名</label><input required placeholder="例如：星語 Michelle"></div>
+        <div class="fieldbox"><label>主要領域</label><select required><option value="">請選擇</option><option>瑜伽</option><option>塔羅占卜</option><option>占星命理</option><option>冥想正念</option><option>能量療癒</option><option>芳療香氣</option><option>其他</option></select></div>
+        <div class="fieldbox"><label>聯絡 Email</label><input type="email" required placeholder="you@example.com"></div>
+        <div class="fieldbox"><label>聯絡方式</label><input placeholder="LINE / 手機 / 社群帳號"></div>
+        <div class="fieldbox full"><label>專業介紹</label><textarea placeholder="簡單說明你的專長、經歷與主要服務"></textarea></div>
+        <div class="full"><button class="primary" type="submit">送出申請</button></div>
+      </form>
+      <div class="success" id="applySuccess"><i class="ri-checkbox-circle-line"></i> 已收到申請資料（示範流程）。正式版可串接後台審核與 Email / LINE 通知。</div>
+    </div>
+  </div>
+</div>
+
+<div class="mobilebar">
+  <button onclick="document.getElementById('top').scrollIntoView()"><i class="ri-home-5-line"></i>首頁</button>
+  <button onclick="scrollToTeachers()"><i class="ri-user-search-line"></i>找老師</button>
+  <button onclick="document.getElementById('courses').scrollIntoView()"><i class="ri-calendar-event-line"></i>課程</button>
+  <button onclick="openApply()"><i class="ri-store-2-line"></i>開業</button>
+</div>
+
+<script>
+const teachers=[
+ {name:"Lina 老師",cat:"瑜伽",field:"瑜伽・正念冥想",desc:"用呼吸、伸展與流動，陪你重新找回身體的節奏。",city:"台北 / 線上",rating:"4.9 (128)",price:"NT$ 1,200 起",img:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=80",tags:["哈達瑜伽","流動瑜伽","初學友善"]},
+ {name:"晨宇老師",cat:"塔羅",field:"塔羅占卜・關係探索",desc:"把模糊的感受整理成可以理解與行動的線索。",city:"線上",rating:"4.8 (96)",price:"NT$ 900 起",img:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80",tags:["感情","工作","塔羅教學"]},
+ {name:"星語 Michelle",cat:"占星",field:"占星分析・生命藍圖",desc:"從本命盤看見性格、關係與人生週期中的重要主題。",city:"台中 / 線上",rating:"4.9 (210)",price:"NT$ 1,800 起",img:"https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80",tags:["本命盤","流年","關係合盤"]},
+ {name:"安然老師",cat:"能量",field:"頌缽・聲音療癒",desc:"透過聲音、呼吸與安靜的空間，協助你放鬆與回到當下。",city:"高雄 / 線上",rating:"4.9 (87)",price:"NT$ 1,500 起",img:"https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=700&q=80",tags:["頌缽","放鬆","聲音"]},
+ {name:"Eva 老師",cat:"芳療",field:"芳療・情緒香氣",desc:"依生活情境與氣味偏好，建立屬於你的日常香氣儀式。",city:"新北 / 線上",rating:"4.8 (73)",price:"NT$ 1,100 起",img:"https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=700&q=80",tags:["精油","香氣","生活儀式"]},
+ {name:"木森老師",cat:"諮詢",field:"生涯梳理・身心對話",desc:"用結構化提問整理壓力、選擇與目前最需要被看見的事情。",city:"線上",rating:"4.9 (105)",price:"NT$ 1,300 起",img:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=700&q=80",tags:["生涯","壓力整理","一對一"]},
+ {name:"若晴老師",cat:"冥想",field:"冥想正念・睡眠放鬆",desc:"從短時間練習開始，培養可以帶進日常的安定感。",city:"線上",rating:"4.9 (156)",price:"NT$ 800 起",img:"https://images.unsplash.com/photo-1548142813-c348350df52b?auto=format&fit=crop&w=700&q=80",tags:["正念","睡眠","呼吸"]},
+ {name:"沐禾老師",cat:"生活",field:"飲食生活・習慣養成",desc:"從可持續的小改變開始，建立比較舒服、穩定的生活節奏。",city:"台南 / 線上",rating:"4.7 (64)",price:"NT$ 1,000 起",img:"https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=700&q=80",tags:["生活整理","習慣","陪跑"]}
+];
+let activeCat="全部", activeTeacher=0, selectedTime="";
+
+function renderTeachers(){
+ const q=(document.getElementById("search").value||"").trim().toLowerCase();
+ const grid=document.getElementById("teacherGrid");
+ const filtered=teachers.map((t,i)=>({...t,i})).filter(t=>{
+   const cat=activeCat==="全部"||t.cat===activeCat;
+   const text=[t.name,t.cat,t.field,t.desc,t.city,...t.tags].join(" ").toLowerCase();
+   return cat && (!q||text.includes(q));
+ });
+ grid.innerHTML=filtered.map(t=>`
+   <article class="teacher-card" onclick="openTeacher(${t.i})">
+     <button class="fav" aria-label="收藏" onclick="event.stopPropagation();toggleFav(this)"><i class="ri-heart-line"></i></button>
+     <div class="teacher-img"><img src="${t.img}" alt="${t.name}" loading="lazy"></div>
+     <div class="teacher-body">
+       <h3>${t.name}</h3><div class="field">${t.field}</div>
+       <p>${t.desc}</p>
+       <div class="meta"><span><i class="ri-map-pin-2-line"></i> ${t.city}</span><span class="rating"><i class="ri-star-fill"></i> ${t.rating}</span></div>
+     </div>
+   </article>`).join("");
+ document.getElementById("emptyState").style.display=filtered.length?"none":"block";
+}
+function filterTeachers(){renderTeachers()}
+function setCategory(cat){
+ activeCat=cat;
+ document.querySelectorAll(".category").forEach(el=>el.classList.toggle("active",el.dataset.cat===cat));
+ renderTeachers(); scrollToTeachers();
+}
+function scrollToTeachers(){document.getElementById("teachers").scrollIntoView({behavior:"smooth",block:"start"})}
+function toggleFav(btn){const i=btn.querySelector("i");i.classList.toggle("ri-heart-line");i.classList.toggle("ri-heart-fill");btn.style.color=i.classList.contains("ri-heart-fill")?"#b75c6a":""}
+function openTeacher(i){
+ activeTeacher=i; selectedTime="";
+ const t=teachers[i]; document.getElementById("modalTitle").textContent=t.name;
+ document.getElementById("teacherModalBody").innerHTML=`
+  <div class="profile-top">
+    <img src="${t.img}" alt="${t.name}">
+    <div><div class="eyebrow">${t.cat}</div><h2 class="serif" style="margin:6px 0 8px">${t.field}</h2><p style="color:var(--muted);line-height:1.7">${t.desc}</p><div class="chips">${t.tags.map(x=>`<span class="chip">${x}</span>`).join("")}</div><strong>${t.price}</strong></div>
+  </div>
+  <hr style="border:0;border-top:1px solid var(--line);margin:24px 0">
+  <h3 class="serif">選擇預約時段</h3>
+  <div class="times">${["09/25 14:00","09/26 19:30","09/28 10:00","09/29 20:00"].map(x=>`<button class="time" onclick="pickTime(this,'${x}')">${x}</button>`).join("")}</div>
+  <form class="form-grid" onsubmit="bookTeacher(event)">
+    <div class="fieldbox"><label>姓名</label><input required placeholder="你的姓名"></div>
+    <div class="fieldbox"><label>聯絡方式</label><input required placeholder="手機 / LINE / Email"></div>
+    <div class="fieldbox full"><label>想討論的主題</label><textarea placeholder="可簡單說明你希望從這次服務得到什麼"></textarea></div>
+    <div class="full"><button class="primary" type="submit">送出預約需求</button></div>
+  </form>
+  <div class="success" id="bookSuccess"><i class="ri-checkbox-circle-line"></i> 預約需求已建立（示範流程）。正式版可串接老師行事曆、金流與 LINE 通知。</div>`;
+ document.getElementById("teacherModal").classList.add("open"); document.body.style.overflow="hidden";
+}
+function pickTime(btn,time){selectedTime=time;document.querySelectorAll(".time").forEach(x=>x.classList.remove("active"));btn.classList.add("active")}
+function bookTeacher(e){e.preventDefault();if(!selectedTime){alert("請先選擇一個預約時段");return}document.getElementById("bookSuccess").style.display="block"}
+function openApply(){document.getElementById("applyModal").classList.add("open");document.body.style.overflow="hidden"}
+function submitApply(e){e.preventDefault();document.getElementById("applySuccess").style.display="block"}
+function closeModal(id){document.getElementById(id).classList.remove("open");document.body.style.overflow=""}
+function modalBackdrop(e,id){if(e.target.id===id)closeModal(id)}
+function toggleMenu(){
+ const links=document.querySelector(".navlinks");
+ const open=getComputedStyle(links).display!=="none";
+ if(open){links.style.display="none"}else{links.style.cssText="display:flex;position:absolute;top:62px;left:11px;right:11px;flex-direction:column;background:#fff;padding:18px;border-radius:18px;box-shadow:var(--shadow);z-index:50"}
+}
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeModal("teacherModal");closeModal("applyModal")}})
+renderTeachers();
+</script>
+</body>
+</html>
