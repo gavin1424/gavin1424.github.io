@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#091726">
+<meta name="description" content="AI 智慧跟隨購物車 V0.3 可折疊收納版。手機360° 3D互動、收折狀態、36項零件、組裝規劃與安全條件。">
+<title>AI 智慧跟隨購物車｜V0.3 可折疊收納版 3D設計</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;--bg:#091624;--surface:#14273a;--line:#304b63;--txt:#f3f7fb;--dim:#a5b9cb;--blue:#71c8ff;--mint:#74e0c0}
+*{box-sizing:border-box}body{margin:0;color:var(--txt);background:radial-gradient(circle at 70% -6%,#21465e 0,transparent 34%),var(--bg)}
+a{color:#8fd5ff}button{font:inherit;cursor:pointer}header{border-bottom:1px solid #284157;background:#0b1728bd;backdrop-filter:blur(12px)}.wrap{max-width:1380px;margin:auto;padding:0 22px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:70px}.logo{font-size:14px;font-weight:900;letter-spacing:.06em}.logo b{color:var(--blue)}.navlink{border:1px solid var(--line);text-decoration:none;padding:10px 14px;border-radius:9px;font-size:12px;white-space:nowrap}
+.hero{padding:38px 0 18px}.micro{color:var(--blue);font-size:12px;font-weight:900;letter-spacing:.16em}.hero h1{margin:10px 0 12px;font-size:clamp(29px,4.3vw,53px);letter-spacing:.01em;line-height:1.16}.hero p{color:var(--dim);max-width:980px;font-size:14px;line-height:1.9}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:23px 0 0}.stat{background:#14293d;border:1px solid var(--line);padding:18px;border-radius:14px}.stat small{display:block;color:var(--dim);font-size:11px;margin-bottom:8px}.stat b{font-size:clamp(17px,2.3vw,25px)}
+.screen{border:1px solid #34536f;background:#10263a;border-radius:19px;overflow:hidden;margin-top:24px;box-shadow:0 18px 50px #030d1890}
+.screen-header{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-bottom:1px solid var(--line);padding:15px 19px;background:#172c41}.screen-header strong{font-size:15px}.small{font-size:12px;color:var(--dim)}
+.stages{display:flex;gap:7px;flex-wrap:wrap}.stages button,.act{border:1px solid #48647b;background:#1a3449;color:#cce4f5;padding:10px 14px;border-radius:10px;font-size:12px;font-weight:750}.stages button[aria-pressed=true],.act.active{background:#176b9b;border-color:#65c8fc;color:#fff}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 260px}.viewport{position:relative;min-width:0;height:620px;background:radial-gradient(ellipse at 40% 30%,#263e56 0,#17293b 42%,#0b1727 100%);touch-action:pan-y}#view3d{display:block;width:100%;height:100%;touch-action:none}
+.hint{position:absolute;bottom:16px;left:18px;pointer-events:none;color:#a5bbca;background:#0a1b2dbb;padding:9px 12px;border-radius:8px;font-size:11px}
+.loading{position:absolute;top:46%;left:50%;transform:translate(-50%,-50%);background:#071727d9;border:1px solid var(--line);padding:12px 18px;border-radius:12px;color:#b5d8f0;font-size:13px}
+.controls{border-left:1px solid var(--line);padding:18px;background:#112238}.controls h3{font-size:14px;margin:5px 0 15px}.control{display:block;margin:15px 0}.control label{display:block;color:var(--dim);font-size:12px;margin-bottom:7px}.act{display:inline-block;min-width:100%;margin:4px 0;text-align:center}.control input{width:100%;accent-color:#78caff}
+.legend{margin-top:19px;padding-top:16px;border-top:1px solid var(--line);line-height:2;font-size:12px;color:var(--dim)}.sw{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:8px}.warning{color:#f0cd96;font-size:12px;line-height:1.85;border:1px solid #715b38;border-radius:12px;background:#332c22;padding:13px;margin-top:15px}
+.section{padding-top:38px}.section h2{font-size:clamp(23px,3vw,31px);margin:0 0 12px}.section p{font-size:13px;color:var(--dim);line-height:1.8}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.card{border:1px solid var(--line);border-radius:14px;padding:18px;background:#14293d}.card b{display:block;font-size:15px}.card .cap{color:var(--blue);font-size:11px;font-weight:900;margin-bottom:9px}.card p{font-size:12px;margin:10px 0 0}
+.svg-panel{background:#f0f5f9;border-radius:17px;overflow:hidden;padding:15px}.svg-panel svg{display:block;width:100%;height:auto}
+.bom-filter{display:flex;flex-wrap:wrap;gap:7px;margin:19px 0}.bom-filter button{background:#1a354b;border:1px solid #3f607b;border-radius:100px;color:#b2d1e6;font-size:12px;padding:9px 13px}.bom-filter button[aria-pressed=true]{background:#207cb3;color:#fff;border-color:#8ccfff}
+.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:14px}table{border-collapse:collapse;width:100%;min-width:720px;font-size:12px}th,td{padding:12px 10px;border-bottom:1px solid #2d465d;vertical-align:top}th{background:#203a50;text-align:left;color:#b8d9ec;position:sticky;top:0}td:first-child{font-weight:900;color:var(--blue)}td:nth-child(3){min-width:200px}.money{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}.status{color:#acc4d6}.sum{text-align:right;margin:14px 0 0;font-weight:800;font-size:19px}
+.cost-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.cost-grid>div{border:1px solid var(--line);border-radius:12px;padding:16px;background:#152c40}.cost-grid strong{font-size:22px;display:block;margin-top:7px}.cost-grid small{color:var(--dim)}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin:25px 0}.links a{padding:12px 17px;border:1px solid #497593;border-radius:10px;text-decoration:none;font-size:13px;background:#152e45}
+footer{margin-top:55px;border-top:1px solid var(--line);padding:26px 0;color:#8199b0;font-size:12px;line-height:1.8}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.controls{border-left:0;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.controls>h3,.legend,.warning{grid-column:1/-1}.controls .control{margin:0}.viewport{height:530px}.cards{grid-template-columns:1fr 1fr}}
+@media(max-width:590px){.wrap{padding:0 12px}.hero{padding:29px 3px 13px}.stats{grid-template-columns:1fr 1fr}.stat{padding:12px}.stat b{font-size:18px}.screen-header{padding:13px}.viewport{height:410px}.controls{grid-template-columns:1fr 1fr;padding:12px}.cards{grid-template-columns:1fr}.cost-grid{grid-template-columns:1fr}.logo{font-size:12px}.top{min-height:64px}.navlink{font-size:11px;padding:9px}.hint{font-size:10px;bottom:10px}}
+</style>
+</head><body>
+<header><div class="wrap top"><div class="logo">AF-CART <b>V0.3 / FOLDABLE</b></div><a class="navlink" href="../">返回原 V0.1 3D ↗</a></div></header>
+<div class="wrap">
+<section class="hero"><div class="micro">AI SMART FOLLOW CART · FOLDABLE PROTOTYPE · 2026.10</div><h1>AI 智慧跟隨購物車<br>可折疊收納版 V0.3</h1><p>從原本的固定式電動購物車，更新為「固定低重心動力核心＋伸縮前支腿＋可折平購物籃＋雙鉸鏈推把」。下方可以直接旋轉、放大、切換展開與收折。此互動展示為簡化 3D 動作示意；STEP / GLB 的靜態 CAD 檔另行提供，尚未完成機構運動干涉與安全驗證。</p>
+<div class="stats"><div class="stat"><small>展開設計包絡（W×D×H）</small><b>620×856×950 <span style="font-size:12px">mm</span></b></div><div class="stat"><small>折疊收納目標（W×D×H）</small><b>620×355×775 <span style="font-size:12px">mm</span></b></div><div class="stat"><small>零件清單</small><b>36 項</b></div><div class="stat"><small>含 15% 預備費預算</small><b>NT$153,051</b></div></div>
+</section>
+<section class="screen" aria-label="可旋轉 3D 模型">
+<div class="screen-header"><div><strong>互動 3D 設計展示</strong><div class="small" id="stateLine">展開模式／可自由旋轉</div></div>
+<div class="stages"><button data-p="0" aria-pressed="true">① 展開</button><button data-p="0.48" aria-pressed="false">② 半折疊</button><button data-p="1" aria-pressed="false">③ 完全收納</button></div></div>
+<div class="layout"><div class="viewport"><canvas id="view3d" aria-label="AI購物車可旋轉3D模型"></canvas><div class="hint">拖曳旋轉　•　雙指或滑鼠滾輪縮放　•　收折模式可切換</div><div id="loading" class="loading">正在載入 3D 預覽...</div></div>
+<aside class="controls"><h3>檢視控制</h3><div class="control"><label for="progress">折疊進度（概念動作）</label><input id="progress" type="range" min="0" max="100" value="0"></div>
+<div class="control"><label>視角</label><button class="act" id="resetCam">3D 全景視角</button><button class="act" id="sideCam">側面</button><button class="act" id="frontCam">正面</button></div>
+<div class="control"><label>零件</label><button class="act" id="basketToggle">隱藏／顯示購物籃</button><button class="act" id="explodeToggle">零件拆解示意</button></div>
+<div class="legend"><div><span class="sw" style="background:#287ccc"></span>電池 / 感測</div><div><span class="sw" style="background:#e3aa3d"></span>機械鎖止點</div><div><span class="sw" style="background:#536e82"></span>可折疊結構件</div><div><span class="sw" style="background:#de544b"></span>緊急停止</div></div>
+<div class="warning">安全條件：未完全展開與上鎖，馬達必須硬體禁能。網站動畫不代表真實機構可直接加工或可無人自主行駛。</div></aside></div></section>
+<section class="section"><h2>四個主要機構更新</h2><div class="cards">
+<div class="card"><div class="cap">01 / BASKET</div><b>四片可折平購物籃</b><p>側板先折平、底板再旋轉貼合車身。清空貨物才可以收折，需設防夾手及正向止擋。</p></div>
+<div class="card"><div class="cap">02 / CHASSIS</div><b>伸縮式前輪支腿</b><p>雙支腿重型導引滑軌、端點主鎖、獨立二次防脫插銷，驅動軸與電池維持固定。</p></div>
+<div class="card"><div class="cap">03 / HANDLE</div><b>折疊推把與相機支架</b><p>推把兩側各有鎖定鉸鏈；攝影機與推把連動收納，展開前須完成定位。</p></div>
+<div class="card"><div class="cap">04 / INTERLOCK</div><b>安全互鎖與失聯停車</b><p>ESP32 讀取左右鎖到位狀態；另設實體急停與獨立硬體斷電／失電抱閘。</p></div>
+<div class="card"><div class="cap">05 / POWER</div><b>不折動的低位電池艙</b><p>25.6V／20Ah LiFePO4 成品電池包、電力隔離與主控維持固定，導線避免跨銳角折軸。</p></div>
+<div class="card"><div class="cap">06 / VALIDATION</div><b>載重與折疊壽命驗證</b><p>20–30kg 仍是設計目標；折疊疲勞、側傾、急停距離、整車重心均尚待試驗。</p></div>
+</div></section>
+<section class="section"><h2>組裝配置與鎖點位置</h2><div class="svg-panel">
+<svg viewBox="0 0 1130 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="購物車折疊結構配置示意">
+<rect width="1130" height="360" rx="14" fill="#edf5fa"/>
+<g stroke="#19364c" stroke-width="7" fill="none"><path d="M92 294H503L530 276M135 275H488M196 96V270M433 96V270M196 96H433"/>
+<path d="M220 147H413V225H220Z"/><path d="M275 234H410M275 255H410"/></g>
+<g fill="#24394b"><circle cx="128" cy="298" r="43"/><circle cx="466" cy="298" r="43"/><circle cx="375" cy="281" r="23"/></g>
+<g fill="#7ea6c1"><circle cx="128" cy="298" r="16"/><circle cx="466" cy="298" r="16"/></g>
+<rect x="226" y="263" width="120" height="34" rx="7" fill="#287ccc"/><rect x="349" y="258" width="57" height="27" rx="5" fill="#d8b369"/>
+<g fill="#e6a73b"><circle cx="198" cy="268" r="10"/><circle cx="428" cy="268" r="10"/><rect x="446" y="229" width="18" height="19" rx="4"/></g>
+<g stroke="#1a7caf" stroke-width="2.5" fill="none">
+<path d="M450 234L597 94H616"/><path d="M211 263L581 161H616"/><path d="M345 274L584 237H616"/><path d="M230 155L595 305H616"/></g>
+<g fill="#183d59" font-family="system-ui,sans-serif" font-size="19" font-weight="700">
+<text x="631" y="101">A 前輪伸縮支腿＋二次機械鎖</text>
+<text x="631" y="168">B 可折籃底板與側板鉸鏈</text>
+<text x="631" y="244">C 固定低位電池／控制艙</text>
+<text x="631" y="311">D 推把鉸鏈／攝影機組</text></g></svg></div>
+<p>這是功能配置草圖，不是含鑽孔座標、尺寸公差與螺絲扭力的加工圖。真實收折全行程仍需碰撞檢查。</p></section>
+<section class="section" id="bom"><h2>36 項零件清單／V0.3 預算</h2><p>沿用 28 項舊版材料，修訂其中 6 項，新增 8 項折疊零件。預算是概估而非店家報價；規格頁不保證現貨。來源與重要限制可在表格查看。</p>
+<div class="cost-grid"><div><small>V0.2 原版預算</small><strong>NT$111,778</strong></div><div><small>V0.3 新版預估材料費</small><strong>NT$133,088</strong></div><div><small>加計 15% 預備費</small><strong>NT$153,051</strong></div></div>
+<div class="bom-filter" id="bomFilter"></div>
+<div class="tablebox"><table><thead><tr><th>ID</th><th>分類</th><th>零件及規格</th><th>數量</th><th class="money">估算單價</th><th class="money">小計</th><th>來源</th></tr></thead><tbody id="bomBody"></tbody></table></div><div class="sum" id="bomSum">36 項：NT$133,088</div></section>
+<section class="section"><h2>原型組裝流程</h2><div class="cards">
+<div class="card"><div class="cap">STEP 01</div><b>固定底盤與後輪</b><p>組好承重結構、兩後驅輪，確定旋轉與防脫位。</p></div>
+<div class="card"><div class="cap">STEP 02</div><b>伸縮滑軌與前輪</b><p>安裝雙軌、兩重鎖止、到位感測與前萬向輪。</p></div>
+<div class="card"><div class="cap">STEP 03</div><b>摺疊籃與推把</b><p>鉸鏈、止擋與護罩裝配後空車收合測試。</p></div>
+<div class="card"><div class="cap">STEP 04</div><b>電池與安全配電</b><p>由合格人員裝成品電池、保險、隔離及接觸器。</p></div>
+<div class="card"><div class="cap">STEP 05</div><b>感測控制／硬體互鎖</b><p>先測急停、雙鎖偵測、失聯停車，再試手動低速。</p></div>
+<div class="card"><div class="cap">STEP 06</div><b>封閉場域驗收</b><p>空載至30kg分級驗證、側傾與收折耐久，未合格不啟動自主跟隨。</p></div>
+</div></section>
+<section class="section"><h2>工程界線與來源</h2><div class="warning">供應商標示的滑軌 100kg 通常是抽屜使用情境的額定，不能直接認定可承受戶外推車的轉向衝擊、振動與偏載。馬達最大扭矩也不能當作連續運轉扭矩。未測試前，不建議在公共場域自動跟隨，不能載人或兒童。</div>
+<p>折疊滑軌參考：<a href="https://www.j-home.com.tw/products_detail_3352.htm" target="_blank" rel="noopener">九宏 LE58 附擋重型100kg滑軌</a>、<a href="https://www.martas.com.tw/products" target="_blank" rel="noopener">振躍精密滑軌型錄</a>。此處是初步選型資料，安裝前必須由機構工程師重新確定。</p>
+<div class="links"><a href="../">查看原版 V0.1 3D 模型</a><a href="../assembly.html">查看 V0.2 組裝設計</a><a href="#bom">跳到 V0.3 BOM</a></div></section>
+</div><footer><div class="wrap">© AI FOLLOW CART V0.3 — Concept CAD / Research Preview. 未經驗證的外觀、折疊機構、續航、安全與承重，均不代表量產設計承諾。</div></footer>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/"}}</script>
+<script type="module">
+const $=id=>document.getElementById(id);
+const urls={
+  frame:"https://www.chena.com.tw/zh-tw/product.php?act=view&id=165",
+  machining:"https://www.toryo.com.tw/aluminum-alloy-extruded-parts",
+  rs:"https://twcn.rs-online.com/",
+  shop:"https://www.icshop.com.tw/",
+  motor:"https://twcn.rs-online.com/web/p/dc-motors/7736775",
+  driver:"https://my.cytron.io/p-30amp-7v-35v-smartdrive-dc-motor-driver-2-channels",
+  pi:"https://robotkingdom.com.tw/product/raspberry-pi-5-model-b-8gb-kit_1/",
+  esp:"https://www.icshop.com.tw/products/368030501811",
+  camera:"https://robotkingdom.com.tw/product/intelrealsense-d435i/",
+  lidar:"https://www.icshop.com.tw/products/368030200754",
+  tof:"https://www.icshop.com.tw/products/368031200200",
+  battery:"https://www.large-battery.com/zh-TW/product/25-6v-20000mah-low-temperature-lifepo4-battery/",
+  buck:"https://tw.element14.com/mean-well/ddr-30g-5/dc-dc-converter-5v-6a/dp/3002996",
+  stop:"https://www.mouser.tw/zh/c/electromechanical/switches/emergency-stop-switches-e-stop-switches/?m=EAO",
+  rail:"https://www.j-home.com.tw/products_detail_3352.htm",
+  martas:"https://www.martas.com.tw/products"
+};
+const rows=[
+["A01","結構","分段3030鋁擠型底盤＋固定機艙",1,7100,"frame"],
+["A02","結構","5052鋁板承載板＋折籃底托",1,2600,"machining"],
+["A03","結構","四片可折疊網籃＋可折平底板",1,4800,"machining"],
+["A04","結構","雙鉸鏈推把＋鎖止件",1,3600,"machining"],
+["A05","結構","低重心控制艙與外殼",1,2200,"shop"],
+["M01","驅動","DOGA 24V減速馬達70rpm／25Nm最大值",2,5380,"motor"],
+["M02","驅動","後橡膠輪Ø200–220＋輪轂",2,1350,"machining"],
+["M03","驅動","前萬向輪Ø125–150",2,550,"rs"],
+["M04","驅動","Cytron MDDS30雙路驅動器",1,4000,"driver"],
+["M05","驅動","輪速編碼器與支架",2,700,"shop"],
+["M06","驅動","失電抱閘及適配轉接件",2,3200,"machining"],
+["C01","控制","Raspberry Pi 5／8GB開發套組",1,8500,"pi"],
+["C02","控制","ESP32-S3 DevKitC-1 N8R8",1,799,"esp"],
+["S01","感測","RealSense D435i深度相機",1,15000,"camera"],
+["S02","感測","SLAMTEC RPLIDAR A2M12（可能缺貨）",1,7999,"lidar"],
+["S03","感測","DFRobot 8×8 ToF感測器（可能缺貨）",3,940,"tof"],
+["S04","安全","NC接觸式防撞條／微動開關",1,1600,"shop"],
+["S05","提示","LED狀態燈＋蜂鳴器",1,650,"shop"],
+["P01","電力","25.6V／20Ah成品電池（BMS連續≥60A）",1,14000,"battery"],
+["P02","電力","電池廠匹配LiFePO4充電器",1,1800,"battery"],
+["P03","電力","9–36V→5V／6A隔離型DC-DC",1,3200,"buck"],
+["P04","電力","9–36V→5V／3A控制電源",1,650,"shop"],
+["P05","電力","DC主保險／分保險／隔離開關",1,1500,"rs"],
+["P06","安全","DC額定牽引接觸器＋安全回路",1,3500,"rs"],
+["P07","安全","2NC蘑菇頭急停＋按鍵",1,1900,"stop"],
+["P08","電力","電源配線及防水接頭",1,2300,"shop"],
+["P09","安全","有線手持維修控制器",1,1400,"shop"],
+["W01","加工","客製輪轂／滑軌座／罩殼／螺絲",1,5000,"machining"],
+["F01","折疊","100kg級雙側重型定位導軌（非動態額定）",2,2000,"rail"],
+["F02","折疊","雙動作安全定位插銷",4,350,"rs"],
+["F03","折疊","籃體不鏽鋼鉸鏈與止擋",6,380,"martas"],
+["F04","折疊","雙重機械鎖扣與保險掛扣",4,480,"rs"],
+["F05","收納","收折立放輔助支腳與墊腳",2,430,"shop"],
+["F06","安全","鉸鏈／滑軌防夾手護套",1,1200,"shop"],
+["F07","安全","雙通道折疊到位感測器組",1,900,"shop"],
+["F08","折疊","可動線束拖鏈與固定防磨套",1,1250,"shop"]
+];
+let cat="全部";
+const money=n=>"NT$"+n.toLocaleString("zh-TW");
+const categories=["全部","結構","驅動","控制","感測","電力","安全","提示","折疊","收納","加工"];
+function renderBom(){
+  const list=rows.filter(r=>cat==="全部"||r[1]===cat);
+  $("bomFilter").innerHTML=categories.map(g=>'<button data-cat="'+g+'" aria-pressed="'+(cat===g)+'">'+g+'</button>').join("");
+  $("bomBody").innerHTML=list.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+r[3]+'</td><td class="money">'+money(r[4])+'</td><td class="money">'+money(r[3]*r[4])+'</td><td><a href="'+urls[r[5]]+'" target="_blank" rel="noopener noreferrer">規格參考 ↗</a></td></tr>').join("");
+  $("bomSum").textContent=list.length+" 項小計："+money(list.reduce((acc,r)=>acc+r[3]*r[4],0));
+  document.querySelectorAll("#bomFilter button").forEach(b=>b.onclick=()=>{cat=b.dataset.cat;renderBom()});
+}
+renderBom();
+try{
+ const THREE=await import('three');const extra=await import('three/addons/controls/OrbitControls.js');const OrbitControls=extra.OrbitControls;
+ const canvas=$("view3d"),renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+ renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setClearColor(0x152537,0);renderer.outputColorSpace=THREE.SRGBColorSpace;
+ const scene=new THREE.Scene();const camera=new THREE.PerspectiveCamera(37,1,5,6000);camera.position.set(1050,1060,1540);
+ const controls=new OrbitControls(camera,renderer.domElement);controls.target.set(0,430,0);controls.enableDamping=true;controls.minDistance=590;controls.maxDistance=3300;controls.maxPolarAngle=Math.PI*.89;controls.update();
+ scene.add(new THREE.HemisphereLight(0xd7eeff,0x405468,3.2));const light=new THREE.DirectionalLight(0xffffff,2.6);light.position.set(-1000,1700,950);scene.add(light);
+ const grid=new THREE.GridHelper(2200,20,0x496278,0x274158);grid.position.y=-5;scene.add(grid);
+ const colors={dark:0x182c3e,frame:0x627b90,black:0x172029,basket:0x506472,blue:0x2d84c2,battery:0x2f74bb,yellow:0xeaac40,red:0xe9514f,green:0x3da786,metal:0xa1b5c2};
+ const materials={};for(const [key,col] of Object.entries(colors))materials[key]=new THREE.MeshStandardMaterial({color:col,roughness:.59,metalness:key==="black"?.22:.48});
+ const parent=new THREE.Group();scene.add(parent);
+ const fixed=new THREE.Group(),sliding=new THREE.Group(),basket=new THREE.Group(),handle=new THREE.Group();parent.add(fixed,sliding,basket,handle);
+ function meshBox(g,name,x,z,y,sx,sz,sy,kind="frame"){const o=new THREE.Mesh(new THREE.BoxGeometry(sx,sy,sz),materials[kind]);o.position.set(x,y,z);o.name=name;g.add(o);return o}
+ function cyl(g,name,x,z,y,r,wide,kind){const o=new THREE.Mesh(new THREE.CylinderGeometry(r,r,wide,24),materials[kind]);o.rotation.z=Math.PI/2;o.position.set(x,y,z);o.name=name;g.add(o);return o}
+ function rod(g,name,a,b,r,kind){const p=new THREE.Vector3(a[0],a[2],a[1]),q=new THREE.Vector3(b[0],b[2],b[1]);const diff=new THREE.Vector3().subVectors(q,p);const o=new THREE.Mesh(new THREE.CylinderGeometry(r,r,1,12),materials[kind]);o.name=name;o.position.copy(p).add(q).multiplyScalar(.5);o.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),diff.clone().normalize());o.scale.set(1,diff.length(),1);g.add(o);return o}
+ meshBox(fixed,"固定鋁製後底盤",0,-255,127,490,315,22,"frame");
+ for(const x of [-230,230])meshBox(fixed,"後輪側框",x,-259,153,24,310,30,"dark");
+ for(const x of [-264,264]){cyl(fixed,"後輪動力總成",x,-285,109,105,50,"black");cyl(fixed,"車輪中心蓋",x+(x>0?28:-28),-285,109,43,4,"metal");meshBox(fixed,"電動馬達",x,-277,148,40,115,54,"frame");meshBox(fixed,"失電抱閘",x,-338,150,38,40,41,"red")}
+ meshBox(fixed,"電池托盤",0,-258,170,362,228,10,"dark");meshBox(fixed,"25.6V電池",0,-266,218,326,190,85,"battery");
+ meshBox(fixed,"電力保護",183,-260,225,55,115,70,"yellow");
+ meshBox(fixed,"固定密封電子艙",0,-250,304,472,260,28,"dark");
+ meshBox(fixed,"Pi 5", -168,-234,330,80,72,13,"green");
+ meshBox(fixed,"ESP32",75,-234,330,62,38,13,"green");
+ meshBox(fixed,"LiDAR",0,-122,351,85,80,33,"black");
+ meshBox(fixed,"正面狀態燈",0,-116,285,300,10,16,"blue");
+ meshBox(fixed,"急停底座",204,-382,314,56,50,40,"red");cyl(fixed,"急停紅色按鈕",204,-382,348,27,18,"red");
+ for(const x of [-230,230])meshBox(fixed,"導軌主鎖",x,-130,170,50,40,26,"yellow");
+ const railParts=[],casters=[];
+ for(const x of [-210,210]){const r=meshBox(sliding,"伸縮前支腿",x,96,145,25,450,30,"metal");railParts.push(r);
+   const caster=new THREE.Group();sliding.add(caster);meshBox(caster,"前輪支架",x,0,150,45,92,22,"dark");cyl(caster,"前萬向輪",x,0,69,62.5,31,"black");casters.push(caster)}
+ const front=meshBox(sliding,"前端防撞橫條",0,379,153,485,20,24,"dark");
+ basket.position.set(0,355,-195);
+ meshBox(basket,"可折籃底板",0,230,0,505,460,14,"basket");
+ for(const x of [-253,253]){rod(basket,"摺疊籃側框", [x,0,0],[x,460,0],7,"frame");
+ rod(basket,"折籃上框", [x,0,299],[x,460,299],9,"frame");
+ for(let i=0;i<10;i++){let z=38+i*42;rod(basket,"折籃網格",[x,z,18],[x,z,285],3,"basket")}}
+ for(const z of [0,460]){rod(basket,"籃底框",[-253,z,0],[253,z,0],7,"frame");rod(basket,"折籃橫框",[-253,z,299],[253,z,299],8,"frame");
+ for(let i=0;i<12;i++){const x=-220+i*40;rod(basket,"網籃縱柱",[x,z,18],[x,z,280],3,"basket")}}
+ for(const x of [-243,243]){const a=new THREE.Group();handle.add(a);a.position.set(x,390,-330);cyl(handle,"鉸鏈鎖點",x,-330,390,23,37,"yellow")}
+ let uprights=[],bar=null,cameraBar=null;
+ for(const x of [-243,243])uprights.push(rod(handle,"推把立柱",[x,-330,390],[x,-411,908],16,"frame"));
+ bar=rod(handle,"橫向推把",[-243,-411,908],[243,-411,908],20,"black");
+ cameraBar=meshBox(handle,"RGB-D相機",0,-412,928,195,45,38,"black");
+ const indicator=meshBox(fixed,"折疊狀態偵測",204,-146,180,26,32,15,"green");
+ function changeRod(obj,start,end){
+  const a=new THREE.Vector3(start[0],start[2],start[1]);const b=new THREE.Vector3(end[0],end[2],end[1]);const diff=b.clone().sub(a);obj.position.copy(a).add(b).multiplyScalar(.5);obj.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),diff.clone().normalize());obj.scale.set(1,diff.length(),1);
+ }
+ let p=0,currentP=0,targetP=0,hidden=false,explode=false;
+ function updateGeometry(v){
+  currentP=v;
+  for(const o of railParts){o.position.z=96-339*v;o.scale.z=1-.41*v;}
+  const frontY=379-470*v;
+  for(let i=0;i<casters.length;i++){casters[i].position.z=(306-437*v);}
+  front.position.z=frontY;
+  basket.rotation.x=-Math.PI*.5*v;
+  basket.scale.set(1,Math.max(.06,1-.9*v),1-.10*v);
+  basket.position.y=355-38*v; basket.position.z=-195+36*v;
+  const hy=-411+66*v,hz=908-207*v;
+  for(let i=0;i<2;i++){const x=i===0?-243:243;changeRod(uprights[i],[x,-330,390],[x,hy,hz])}
+  changeRod(bar,[-243,hy,hz],[243,hy,hz]);
+  cameraBar.position.set(0,hz+18,hy-4);
+  if(explode){basket.position.y+=140;sliding.position.z+=100;handle.position.z-=80}
+  else{sliding.position.z=0;handle.position.z=0}
+  $('progress').value=Math.round(v*100);
+  $('stateLine').textContent=(v>.95?'完全收納':v>.04?'折疊中':'展開使用')+'／運動方式為視覺示意，非機構驗算';
+  document.querySelectorAll('[data-p]').forEach(b=>b.setAttribute('aria-pressed',Math.abs(Number(b.dataset.p)-v)<.07));
+ }
+ updateGeometry(0);
+ document.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{targetP=Number(b.dataset.p);});
+ $('progress').addEventListener('input',e=>{targetP=Number(e.target.value)/100});
+ $('resetCam').onclick=()=>{camera.position.set(1050,1060,1540);controls.target.set(0,430,0);controls.update()};
+ $('sideCam').onclick=()=>{camera.position.set(1300,510,150);controls.target.set(0,430,0);controls.update()};
+ $('frontCam').onclick=()=>{camera.position.set(35,560,1600);controls.target.set(0,420,0);controls.update()};
+ $('basketToggle').onclick=()=>{hidden=!hidden;basket.visible=!hidden};
+ $('explodeToggle').onclick=()=>{explode=!explode;$('explodeToggle').classList.toggle('active',explode);updateGeometry(currentP)};
+ const ro=new ResizeObserver(()=>{const w=canvas.clientWidth,h=canvas.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()});ro.observe(canvas);
+ $('loading').style.display='none';
+ let prev=0;
+ function frame(time){const dt=Math.min((time-prev||16)/1000,.08);prev=time;
+ const speed=Math.min(1,dt*3.4);if(Math.abs(targetP-currentP)>0.0005)updateGeometry(currentP+(targetP-currentP)*speed);else if(Math.abs(targetP-currentP)>0)updateGeometry(targetP);
+ controls.update();renderer.render(scene,camera);requestAnimationFrame(frame)}requestAnimationFrame(frame);
+}catch(e){$('loading').textContent='3D 載入未成功；請檢查網路／WebGL。零件與工程資料仍可在下方查看。';console.error('3D init failed',e)}
+</script></body></html>
