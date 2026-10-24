@@ -215,8 +215,9 @@ try{
   for(let i=0;i<2;i++){const x=i===0?-243:243;changeRod(uprights[i],[x,-330,390],[x,hy,hz])}
   changeRod(bar,[-243,hy,hz],[243,hy,hz]);
   cameraBar.position.set(0,hz+18,hy-4);
-  if(explode){basket.position.y+=140;sliding.position.z+=100;handle.position.z-=80}
-  else{sliding.position.z=0;handle.position.z=0}
+  basket.position.y=355-38*v+(explode?140:0);
+  sliding.position.z=explode?100:0;
+  handle.position.z=explode?-80:0;
   $('progress').value=Math.round(v*100);
   $('stateLine').textContent=(v>.95?'完全收納':v>.04?'折疊中':'展開使用')+'／運動方式為視覺示意，非機構驗算';
   document.querySelectorAll('[data-p]').forEach(b=>b.setAttribute('aria-pressed',Math.abs(Number(b.dataset.p)-v)<.07));
