@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a1523">
+<meta name="description" content="AI智慧跟隨購物車 V0.2：28項零件清單、來源、拆解草圖、底盤配置、配線功能圖及組裝步驟">
+<title>AI跟隨購物車｜組裝草圖・28項零件 BOM V0.2</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;--bg:#091421;--panel:#132337;--soft:#1d3348;--line:#2b455c;--txt:#eef7fd;--dim:#a8bed0;--blue:#65beff;--good:#67dfbe}*{box-sizing:border-box}
+body{margin:0;color:var(--txt);background:radial-gradient(ellipse at 75% 0%,#174063 0,transparent 42%),var(--bg)}
+a{color:#8dd5ff}.wrap{max-width:1260px;padding:0 25px;margin:auto}
+header{border-bottom:1px solid var(--line);background:#0c1827a8;backdrop-filter:blur(10px)}.nav{display:flex;align-items:center;justify-content:space-between;gap:15px;min-height:72px}.brand{font-weight:850;letter-spacing:.04em}.nav a{font-size:13px;text-decoration:none;border:1px solid #36556b;padding:10px 14px;border-radius:9px}
+.hero{padding:49px 0 20px}.eyebrow{font-size:12px;letter-spacing:.13em;color:var(--blue);font-weight:800}.hero h1{font-size:clamp(30px,4.2vw,53px);line-height:1.2;margin:12px 0}.lead{color:var(--dim);max-width:900px;line-height:1.85;font-size:14px}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:25px}.metric{border:1px solid var(--line);background:#12263a;border-radius:15px;padding:18px}.metric small{display:block;color:#9ab0c3;margin-bottom:9px}.metric strong{font-size:24px}.metric .s{font-size:14px}
+main{padding:20px 0 70px}.section{margin:44px 0 19px}.section h2{font-size:25px;margin:0 0 10px}.section p{color:var(--dim);font-size:14px;line-height:1.7;margin:0}.grid{display:grid;grid-template-columns:1.3fr .7fr;gap:15px}
+.card{border:1px solid var(--line);background:linear-gradient(140deg,#162d43,#102031);border-radius:20px;padding:24px;overflow:hidden}.card h3{font-size:16px;margin:0 0 9px}.card p,.card li{font-size:13px;line-height:1.85;color:var(--dim)}.card ol{padding-left:22px}.figure{display:block;width:100%;height:auto;border-radius:12px;background:#edf4f8}.caption{font-size:12px;color:#a9c5d6;margin:13px 0 0;line-height:1.75}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.tile{border:1px solid var(--line);border-radius:14px;padding:18px;background:#13263a}.tile b{display:block;font-size:15px}.tile .n{color:var(--blue);font-size:13px;font-weight:bold;margin-bottom:10px}.tile p{font-size:13px;color:var(--dim);line-height:1.8}
+.filters{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0}.filter{border:1px solid #446784;border-radius:100px;padding:9px 14px;color:#b5c9de;background:#10243a;font-size:12px;cursor:pointer}.filter[aria-pressed=true]{background:#246b9a;border-color:#5dc3fa;color:white}
+.table-wrap{overflow-x:auto;border-radius:15px;border:1px solid var(--line)}table{border-collapse:collapse;width:100%;min-width:900px;font-size:12px}th{font-size:11px;letter-spacing:.07em;text-align:left;color:#b2d5e9;background:#1c3449;position:sticky;top:0}th,td{padding:13px 12px;border-bottom:1px solid #314456}td:nth-child(2){min-width:250px}.money{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}.muted{color:#aac2d3}.note{font-size:12px;color:#d3aa70}
+.note-bar{border:1px solid #6a552d;background:#312a21;padding:15px 18px;border-radius:12px;color:#f4d29e;font-size:13px;line-height:1.85}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.actions a,.actions button{background:#135c87;color:#fff;font-weight:700;padding:13px 17px;border:none;border-radius:10px;text-decoration:none;font-size:13px;cursor:pointer}
+footer{padding:28px 0;color:#7795ad;font-size:12px;border-top:1px solid var(--line);line-height:1.8}
+@media(max-width:800px){.wrap{padding:0 15px}.metrics{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.tiles{grid-template-columns:1fr 1fr}.card{padding:16px}.metric strong{font-size:20px}.hero{padding-top:30px}}
+@media(max-width:520px){.tiles{grid-template-columns:1fr}.nav{min-height:66px}.nav a{font-size:11px}.hero h1{font-size:30px}.metrics{gap:8px}.metric{padding:13px}.metric strong{font-size:18px}}
+@media print{body{background:white;color:#15283b}.card,.tile,.metric{background:white;color:#15283b;border:1px solid #ccc}.tile p,.card p,.lead,.section p{color:#333}.nav,.filters,.actions{display:none!important}}
+</style></head><body>
+<header><div class="wrap nav"><div class="brand">AF-CART <span style="color:#76cfff">/ V0.2 ASSEMBLY</span></div><div><a href="./">返回可旋轉 3D 模型 ↗</a></div></div></header>
+<div class="wrap hero"><div class="eyebrow">PRODUCT DEVELOPMENT · 2026-10-24</div><h1>AI 智慧跟隨購物車<br>零件清單與組裝草圖</h1><p class="lead">第一代實作原型規劃。沿用 V0.1 外觀包絡 620 × 856 × 950 mm，工程版調整為「後方兩個有動力的輪子＋前方兩個萬向腳輪」。以下圖是零件定位與配線功能概念，不是完成鑽孔與安全驗收的量產工程圖。</p>
+<div class="metrics"><div class="metric"><small>零件項目</small><strong>28 <span class="s">項</span></strong></div><div class="metric"><small>原型材料估列</small><strong>NT$111,778</strong></div><div class="metric"><small>含 15% 預備費</small><strong>NT$128,545</strong></div><div class="metric"><small>承重／續航目標</small><strong>20–30kg <span class="s">／待測</span></strong></div></div></div>
+<main class="wrap">
+<div class="section"><h2>01｜產品分層拆解</h2><p>從上到下依序安裝；電池和電力元件必須靠近底盤，防止重心過高。</p></div>
+<div class="grid"><div class="card">
+<svg class="figure" viewBox="0 0 860 660" role="img" aria-label="購物車拆解：相機推把、購物籃、轉接板、主控艙、電池、底盤與輪組">
+<defs><marker id="ar" markerWidth="9" markerHeight="9" refX="5" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#1676ba"/></marker></defs>
+<g font-family="sans-serif"><text x="25" y="35" font-size="22" fill="#21374b" font-weight="bold">EXPLODED ASSEMBLY · A-A</text>
+<path d="M228 110 L244 52 L548 52 L558 110" fill="none" stroke="#263c4e" stroke-width="15" stroke-linecap="round"/><rect x="320" y="35" width="178" height="29" rx="10" fill="#172c42"/><g fill="#67caff"><circle cx="349" cy="50" r="7"/><circle cx="409" cy="50" r="7"/><circle cx="473" cy="50" r="7"/></g>
+<path d="M170 143 H614 L552 325 H228Z" fill="#dce8f2" stroke="#243b50" stroke-width="6"/><g stroke="#8ba4b7" stroke-width="2"><path d="M210 145L250 322M250 145L278 322M290 145L306 322M330 145L334 322M370 145L363 322M410 145L390 322M450 145L419 322M490 145L448 322M530 145L477 322M570 145L506 322"/><path d="M198 195H593M213 246H576M224 288H562"/></g>
+<g stroke="#1676ba" stroke-dasharray="7 7" stroke-width="3" marker-end="url(#ar)"><path d="M280 331V358"/><path d="M500 331V358"/><path d="M398 397V424"/><path d="M398 492V520"/></g>
+<path d="M208 366H560L610 390H258Z" fill="#aec6d7" stroke="#526d83" stroke-width="3"/><path d="M210 423H548L594 456H253Z" fill="#d9e6ee" stroke="#526d83" stroke-width="3"/><rect x="252" y="426" width="125" height="22" rx="4" fill="#397d65"/><rect x="392" y="426" width="85" height="22" rx="4" fill="#266cb8"/><rect x="488" y="426" width="70" height="22" rx="4" fill="#d7b75a"/>
+<rect x="290" y="470" width="240" height="48" rx="8" fill="#2d71b8"/><text x="410" y="501" font-size="20" text-anchor="middle" fill="white" font-weight="bold">25.6V 20Ah LiFePO4</text>
+<path d="M185 535H600L660 571H245Z" fill="#2f465b" stroke="#152b3c" stroke-width="5"/>
+<g fill="#223649" stroke="#98b0c1" stroke-width="7"><circle cx="223" cy="560" r="68"/><circle cx="614" cy="560" r="68"/><circle cx="291" cy="611" r="37"/><circle cx="533" cy="611" r="37"/></g>
+<g fill="#b6c7d5"><circle cx="223" cy="560" r="24"/><circle cx="614" cy="560" r="24"/><circle cx="291" cy="611" r="13"/><circle cx="533" cy="611" r="13"/></g>
+<g font-size="16" fill="#233e56"><text x="630" y="59">① 深度相機</text><text x="630" y="102">② 推把支架</text><text x="630" y="172">③ 網狀購物籃</text><text x="630" y="391">④ 快拆籃座</text><text x="630" y="450">⑤ 運算控制艙</text><text x="630" y="502">⑥ 低重心電池</text><text x="630" y="565">⑦ 後驅輪組</text><text x="630" y="610">⑧ 前萬向輪</text></g>
+</g></svg><div class="caption">此頁結構為分層配置示意，實際馬達固定孔、輪轂配合、籃座鎖點與制動零件仍須拿到廠商 CAD 後設計。</div></div>
+<div class="card"><h3>各層應安裝什麼？</h3><ol><li>推把頂部：深度相機，監測主人位置；遮擋失聯時應停止。</li><li>購物籃：可拆卸網籃，底下設二次防脫落鎖。</li><li>上層隔板：Pi 5、ESP32-S3、馬達驅動器、散熱、防水控制艙。</li><li>最下層：成品 LiFePO4 電池、分路保險、接觸器與充電插座。</li><li>後方輪組：兩個 DC 減速馬達、後輪、輪速編碼器與失電抱閘。</li><li>前方輪組：兩個萬向腳輪、正前方 LiDAR／ToF 與接觸式防撞。</li></ol><div class="note-bar">關鍵差異：舊版 3D 是外觀模型；這份 V0.2 採用更容易製作、較容易原地轉向的雙後驅底盤，舊 3D 尚未同步修改馬達安裝孔。</div></div></div>
+<div class="section"><h2>02｜底盤俯視尺寸配置</h2><p>下圖朝上是前方行駛方向。圖中 500 × 670mm 只是擬定鋁擠型主骨架範圍。</p></div>
+<div class="grid"><div class="card">
+<svg class="figure" viewBox="0 0 850 620" role="img" aria-label="620毫米寬856毫米長，後方雙動力輪，前方雙萬向輪，電池置中與控制艙">
+<g font-family="sans-serif"><text x="25" y="36" fill="#233d54" font-size="21" font-weight="bold">CHASSIS TOP VIEW</text><text x="305" y="68" fill="#1372b2" font-size="17">↑ 前進方向</text>
+<rect x="180" y="83" width="420" height="462" fill="none" stroke="#97aabc" stroke-width="3" stroke-dasharray="9 6"/>
+<rect x="222" y="126" width="336" height="380" rx="8" fill="#deebf4" stroke="#24435b" stroke-width="5"/>
+<g stroke="#8babbf" stroke-width="7" fill="#23435d"><circle cx="255" cy="164" r="36"/><circle cx="526" cy="164" r="36"/><circle cx="220" cy="471" r="50"/><circle cx="558" cy="471" r="50"/></g>
+<g fill="#c5d5df"><circle cx="255" cy="164" r="13"/><circle cx="526" cy="164" r="13"/><circle cx="220" cy="471" r="22"/><circle cx="558" cy="471" r="22"/></g>
+<rect x="302" y="264" width="173" height="103" rx="16" fill="#3174b5"/><text x="390" y="305" font-size="19" fill="#fff" text-anchor="middle">8S LiFePO4</text><text x="390" y="334" font-size="14" fill="#fff" text-anchor="middle">電池托盤</text>
+<rect x="297" y="392" width="186" height="45" rx="9" fill="#cee8d9" stroke="#6dae89"/><text x="390" y="421" text-anchor="middle" font-size="14" fill="#266a4e">ESP32 + Pi 5 + MDDS30</text>
+<circle cx="390" cy="171" r="24" fill="#1d81d2"/><text x="390" y="211" font-size="13" text-anchor="middle" fill="#195b8f">LiDAR</text>
+<rect x="281" y="109" width="213" height="14" rx="5" fill="#e0aa45"/>
+<rect x="295" y="85" width="33" height="25" rx="3" fill="#4ea4d7"/><rect x="447" y="85" width="33" height="25" rx="3" fill="#4ea4d7"/>
+<path d="M220 563H558" stroke="#162c40" stroke-width="12" stroke-linecap="round"/><text x="390" y="598" font-size="14" text-anchor="middle" fill="#466074">後方推把</text>
+<g stroke="#193c58" stroke-width="2"><path d="M180 565V584M600 565V584M180 576H600"/><path d="M156 83H135M156 545H135M145 83V545"/></g>
+<text x="388" y="578" fill="#183853" font-size="15" font-weight="bold" text-anchor="middle">620 mm</text><text x="106" y="310" fill="#183853" font-size="18" font-weight="bold">856</text>
+<g fill="#294c63" font-size="17"><text x="628" y="146">01 前萬向輪</text><text x="628" y="215">02 LiDAR＋ToF</text><text x="628" y="284">03 電池包</text><text x="628" y="351">04 控制艙</text><text x="628" y="418">05 減速馬達</text><text x="628" y="488">06 後動力輪</text></g>
+</g></svg></div>
+<div class="card"><h3>底盤與機構檢查</h3><ol><li>外框寬 620mm，深 856mm，高 950mm，尚未確定的「機械中心距」不可從圖片量取。</li><li>購物籃底座、低位電池盒與輪組各自獨立固定，不得讓電池承受購物重量。</li><li>30kg 載重應做靜態、側向傾倒、急煞、斜坡與推力測試。</li><li>輪轂應依實際 9mm 軸形及固定方式加工，不使用靠緊定螺絲單點鎖住的未驗證方案。</li><li>2D 雷達只能掃描單一高度，低矮物、懸空物和台階需結合 ToF、深度攝影機和碰撞接觸器。</li></ol></div></div>
+<div class="section"><h2>03｜電力與控制功能圖</h2><p>電池充放電、急停、制動與 ESP32 控制權限要分開設計。以下僅表示訊號／電力關係，不可當成實際配線端子圖。</p></div>
+<div class="card">
+<svg class="figure" viewBox="0 0 1050 470" role="img" aria-label="電池保險絲隔離開關牽引接觸器馬達驅動器左右後輪，另有降壓給Pi及ESP32">
+<g font-family="sans-serif">
+<rect x="40" y="80" width="185" height="74" rx="13" fill="#2c659e"/><text x="132" y="111" fill="white" text-anchor="middle" font-size="16" font-weight="bold">LiFePO4 25.6V</text><text x="132" y="135" fill="white" text-anchor="middle" font-size="13">20Ah + 8S BMS</text>
+<rect x="280" y="84" width="175" height="66" rx="10" fill="#dbebf6" stroke="#7b9eba"/><text x="368" y="111" text-anchor="middle" fill="#203e58" font-size="14">DC 主保險／隔離</text><text x="368" y="132" text-anchor="middle" fill="#203e58" font-size="12">配電</text>
+<rect x="510" y="84" width="162" height="66" rx="10" fill="#fbe3de" stroke="#c57972"/><text x="591" y="120" text-anchor="middle" fill="#8b2930" font-size="15">DC 接觸器</text>
+<rect x="726" y="84" width="150" height="66" rx="10" fill="#e2eef6" stroke="#7b9eba"/><text x="800" y="120" text-anchor="middle" fill="#21425c" font-size="17">MDDS30</text>
+<rect x="907" y="84" width="110" height="66" rx="10" fill="#c8d9e5" stroke="#7b9eba"/><text x="962" y="115" text-anchor="middle" fill="#1e3f5b" font-size="13">雙有刷馬達</text><text x="962" y="134" text-anchor="middle" fill="#1e3f5b" font-size="12">含制動</text>
+<g stroke="#cd564d" stroke-width="4" fill="none"><path d="M225 117H280M455 117H510M672 117H726M876 117H907"/></g>
+<rect x="300" y="238" width="191" height="66" rx="12" fill="#e1f3e8" stroke="#85bda0"/><text x="396" y="265" text-anchor="middle" fill="#1c6248" font-size="15">9–36V → 5V/6A</text><text x="396" y="286" text-anchor="middle" fill="#1c6248" font-size="13">Raspberry Pi 5</text>
+<rect x="530" y="238" width="197" height="66" rx="12" fill="#e1f3e8" stroke="#85bda0"/><text x="628" y="265" text-anchor="middle" fill="#1c6248" font-size="15">9–36V → 5V/3A</text><text x="628" y="286" text-anchor="middle" fill="#1c6248" font-size="13">ESP32／感測器</text>
+<path d="M368 150V208H396V238M396 208H628V238" stroke="#1885ca" stroke-width="4" fill="none"/>
+<rect x="65" y="352" width="331" height="77" rx="14" fill="#deebf5" stroke="#90b2c9"/><text x="230" y="384" text-anchor="middle" fill="#1d405d" font-size="15">深度相機／LiDAR</text><text x="230" y="409" text-anchor="middle" fill="#46647b" font-size="13">Pi 計算視覺追蹤</text>
+<rect x="458" y="352" width="220" height="77" rx="14" fill="#deebf5" stroke="#90b2c9"/><text x="567" y="384" text-anchor="middle" fill="#1d405d" font-size="15">ToF ×3／編碼器</text><text x="567" y="409" text-anchor="middle" fill="#46647b" font-size="13">ESP32 即時回授</text>
+<path d="M396 304V329H230V352M628 304V329H567V352" stroke="#2388c8" stroke-width="3" fill="none"/>
+<rect x="738" y="317" width="277" height="112" rx="14" fill="#fbe8d4" stroke="#d5a66d"/><text x="876" y="350" text-anchor="middle" fill="#8b511c" font-size="16">實體急停 + 防撞 NC</text><text x="876" y="374" text-anchor="middle" fill="#7c4b1c" font-size="14">硬體聯鎖 + watchdog</text><text x="876" y="400" text-anchor="middle" fill="#7c4b1c" font-size="12">切牽引／失電煞車接合</text>
+<path d="M876 317V214H591V150" stroke="#cd564d" stroke-width="4" fill="none"/>
+<text x="45" y="35" fill="#243f58" font-size="20" font-weight="bold">POWER & CONTROL / BLOCK DIAGRAM</text>
+</g></svg><p class="caption">安全聯鎖功能圖：必須選擇具正確 DC 額定的接觸器，馬達停轉與失電抱閘的實際制動特性需專門驗證；不可只切掉電源就當作已煞車。</p></div>
+<div class="section"><h2>04｜28 項零件與購買規格連結</h2><p>網站已查詢的售價、估列成本與待詢價項目分開標示。價格可能變動；「規格頁」不等於已確認現貨／可直接配裝。</p></div>
+<div class="filters" id="filters"></div>
+<div class="table-wrap"><table><thead><tr><th>ID</th><th>零件／規格</th><th>類別</th><th>數量</th><th class="money">單價估列</th><th class="money">小計</th><th>價格依據</th><th>來源</th></tr></thead><tbody id="tb"></tbody></table></div>
+<div style="text-align:right;padding:16px;font-weight:bold">預算總額 <span id="total">NT$111,778</span>　<span class="muted">+15% 約 NT$128,545</span></div>
+<div class="section"><h2>05｜六階段組裝順序</h2><p>照順序完成，每一階段均應先人工驗收，再進入下一步。</p></div>
+<div class="tiles">
+<div class="tile"><div class="n">STEP 01</div><b>底盤骨架</b><p>裁切 3030 鋁擠型，裝底板與支撐柱，檢查尺寸、水平及螺絲防鬆。</p></div>
+<div class="tile"><div class="n">STEP 02</div><b>輪組／輪轂／煞車</b><p>固定雙後驅馬達、轉接輪轂、輪編碼器與前萬向輪；做機械轉向與失電抱閘試驗。</p></div>
+<div class="tile"><div class="n">STEP 03</div><b>電池與配電</b><p>由具備能力的人員裝設成品電池、BMS、DC 保險絲、隔離開關與接觸器，檢查極性／線徑。</p></div>
+<div class="tile"><div class="n">STEP 04</div><b>感測／電腦</b><p>安裝 Pi 5、ESP32、深度相機、LiDAR、ToF 與防撞條，將電力線與訊號線分離。</p></div>
+<div class="tile"><div class="n">STEP 05</div><b>離地空轉／手動測試</b><p>先驗證急停、抱閘與通訊失聯，透過有線手動使能測前後轉向，不要直接啟動跟隨。</p></div>
+<div class="tile"><div class="n">STEP 06</div><b>封閉場地載重驗證</b><p>空載到 5／10／20／30kg 漸進測試輪組熱、電池電流、碰撞、煞停距離與防傾倒。</p></div>
+</div>
+<div class="section"><h2>採購前特別提醒</h2></div>
+<div class="note-bar">① DOGA 馬達頁的 25Nm 是最大輸出扭矩，不是已驗證的連續扭矩。② 參考電池頁只有 15A 放電規格，不可直接照買；實際需訂做 BMS 連續至少 60A 的電池包。③ 指定商家中的 RPLIDAR A2 與 ToF 模組顯示缺貨。④ D435i 頁面含稅／標價彼此有出入。⑤ 原始 3D 檔的輪組仍未依此方案重新出工程孔位。</div>
+<div class="actions"><a href="./">檢視原 3D 模型</a><button type="button" onclick="window.print()">列印此頁</button></div>
+</main><footer><div class="wrap">AI FOLLOW CART V0.2 · 研究用裝配草圖。未經實際試驗，不可在公共人流環境自主運行，也不能直接改成嬰兒車、寵物車或載人裝置。<br>供應商規格與價格以購買當日資料為準。<div style="margin-top:9px"><a href="./">3D 模型</a>　|　<a href="https://github.com/gavin1424/gavin1424.github.io/tree/main/ai-follow-cart">GitHub 原始網站</a></div></div></footer>
+<script>
+const bom=[{"id":"A01","group":"結構","name":"3030 鋁擠型底盤＋角碼","qty":1,"unit":5700,"status":"預算估算","url":"https://www.chena.com.tw/zh-tw/product.php?act=view&id=165"},{"id":"A02","group":"結構","name":"5052 鋁合金承載板 3–4mm","qty":1,"unit":2200,"status":"預算估算","url":"https://www.toryo.com.tw/aluminum-alloy-extruded-parts"},{"id":"A03","group":"結構","name":"可拆卸金屬網購物籃","qty":1,"unit":2600,"status":"預算估算/需客製","url":"https://www.toryo.com.tw/aluminum-alloy-extruded-parts"},{"id":"A04","group":"結構","name":"推把／立柱／快拆固定座","qty":1,"unit":2000,"status":"預算估算","url":"https://www.toryo.com.tw/aluminum-alloy-extruded-parts"},{"id":"A05","group":"結構","name":"控制箱／密封件／防撞外殼","qty":1,"unit":1800,"status":"預算估算","url":"https://www.icshop.com.tw/"},{"id":"M01","group":"驅動","name":"DOGA 24V 有刷減速馬達 70rpm，最大25Nm","qty":2,"unit":5380,"status":"網站參考價","url":"https://twcn.rs-online.com/web/p/dc-motors/7736775"},{"id":"M02","group":"驅動","name":"後輪 Ø200–220＋客製軸轉接輪轂","qty":2,"unit":1350,"status":"預算估算","url":"https://www.toryo.com.tw/aluminum-alloy-extruded-parts"},{"id":"M03","group":"驅動","name":"前萬向腳輪 Ø125–150","qty":2,"unit":550,"status":"預算估算","url":"https://twcn.rs-online.com/"},{"id":"M04","group":"驅動","name":"Cytron MDDS30 7–35V 雙路30A驅動器","qty":1,"unit":4000,"status":"預算估算/依幣別詢價","url":"https://my.cytron.io/p-30amp-7v-35v-smartdrive-dc-motor-driver-2-channels"},{"id":"M05","group":"驅動","name":"輪速編碼器＋固定座","qty":2,"unit":700,"status":"預算估算","url":"https://www.icshop.com.tw/"},{"id":"M06","group":"安全","name":"失電自動抱閘＋轉接件","qty":2,"unit":3200,"status":"待詢價/機構未驗證","url":"https://www.toryo.com.tw/aluminum-alloy-extruded-parts"},{"id":"C01","group":"控制","name":"Raspberry Pi 5 8GB 套組","qty":1,"unit":8500,"status":"網站參考價","url":"https://robotkingdom.com.tw/product/raspberry-pi-5-model-b-8gb-kit_1/"},{"id":"C02","group":"控制","name":"ESP32-S3 DevKitC-1 N8R8","qty":1,"unit":799,"status":"網站參考價","url":"https://www.icshop.com.tw/products/368030501811"},{"id":"S01","group":"感測","name":"RealSense D435i RGB-D 深度攝影機","qty":1,"unit":15000,"status":"網站價有矛盾/估列","url":"https://robotkingdom.com.tw/product/intelrealsense-d435i/"},{"id":"S02","group":"感測","name":"RPLIDAR A2M12 360° 2D LiDAR","qty":1,"unit":7999,"status":"網站參考價/缺貨","url":"https://www.icshop.com.tw/products/368030200754"},{"id":"S03","group":"感測","name":"DFRobot 8×8 ToF 距離模組","qty":3,"unit":940,"status":"網站參考價/缺貨","url":"https://www.icshop.com.tw/products/368031200200"},{"id":"S04","group":"安全","name":"接觸式防撞條與 NC 微動開關","qty":1,"unit":1600,"status":"預算估算","url":"https://www.icshop.com.tw/"},{"id":"S05","group":"控制","name":"LED 提示燈＋蜂鳴器","qty":1,"unit":650,"status":"預算估算","url":"https://www.icshop.com.tw/"},{"id":"P01","group":"電力","name":"25.6V 20Ah LiFePO4 成品包＋BMS≥60A","qty":1,"unit":14000,"status":"待詢價/連續電流需確認","url":"https://www.large-battery.com/zh-TW/product/25-6v-20000mah-low-temperature-lifepo4-battery/"},{"id":"P02","group":"電力","name":"電池商匹配的 LiFePO4 專用充電器","qty":1,"unit":1800,"status":"預算估算","url":"https://www.large-battery.com/zh-TW/product/25-6v-20000mah-low-temperature-lifepo4-battery/"},{"id":"P03","group":"電力","name":"9–36V→5V 6A 隔離 DC-DC","qty":1,"unit":3200,"status":"預算估算","url":"https://tw.element14.com/mean-well/ddr-30g-5/dc-dc-converter-5v-6a/dp/3002996"},{"id":"P04","group":"電力","name":"9–36V→5V 3A 控制電源","qty":1,"unit":650,"status":"預算估算","url":"https://www.icshop.com.tw/"},{"id":"P05","group":"安全","name":"直流主保險／分支保險／隔離開關","qty":1,"unit":1500,"status":"預算估算","url":"https://twcn.rs-online.com/"},{"id":"P06","group":"安全","name":"直流牽引接觸器／硬體安全迴路","qty":1,"unit":3500,"status":"待詢價","url":"https://twcn.rs-online.com/"},{"id":"P07","group":"安全","name":"2NC 蘑菇頭急停＋操作按鍵","qty":1,"unit":1900,"status":"網站參考價/估列","url":"https://www.mouser.tw/zh/c/electromechanical/switches/emergency-stop-switches-e-stop-switches/?m=EAO"},{"id":"P08","group":"電力","name":"電力線束／防水接頭／線槽","qty":1,"unit":2300,"status":"預算估算","url":"https://www.icshop.com.tw/"},{"id":"P09","group":"安全","name":"有線手持維修使能控制","qty":1,"unit":1400,"status":"預算估算","url":"https://www.icshop.com.tw/"},{"id":"W01","group":"加工","name":"輪轂／固定架／罩殼／螺絲加工","qty":1,"unit":3500,"status":"預算估算","url":"https://www.toryo.com.tw/aluminum-alloy-extruded-parts"}];
+const fmt=v=>'NT$'+Number(v).toLocaleString('zh-TW');
+const groups=['全部','結構','驅動','控制','感測','電力','安全','加工'];
+let current='全部';
+function render(){
+const visible=bom.filter(r=>current==='全部'||r.group===current);
+document.getElementById('filters').innerHTML=groups.map(g=>'<button class="filter" aria-pressed="'+(g===current)+'" onclick="pick(&quot;'+g+'&quot;)">'+g+'</button>').join('');
+document.getElementById('tb').innerHTML=visible.map(r=>'<tr><td style="font-weight:bold;color:#80ceff">'+r.id+'</td><td>'+r.name+'</td><td>'+r.group+'</td><td>'+r.qty+'</td><td class="money">'+fmt(r.unit)+'</td><td class="money">'+fmt(r.unit*r.qty)+'</td><td class="muted">'+r.status+'</td><td><a target="_blank" rel="noopener noreferrer" href="'+r.url+'">規格／賣場 ↗</a></td></tr>').join('');
+document.getElementById('total').textContent=fmt(visible.reduce((s,r)=>s+r.qty*r.unit,0));
+}
+function pick(g){current=g;render()}render();
+</script></body></html>
